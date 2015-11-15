@@ -11,6 +11,8 @@
 #import "LeftViewController.h"
 #import "VideoShowsViewController.h"
 #import "VideoShowsByCategoryNetManager.h"
+#import "VategoryViewModel.h"
+#import "VideoShowsViewModel.h"
 
 @interface AppDelegate ()
 
@@ -31,6 +33,9 @@
 //        NSLog(@"...");
 //    }];
     
+//    [VideoShowsByCategoryNetManager getCategoryCompletionHandle:^(id model, NSError *error) {
+//        NSLog(@"....");
+//    }];
     
     self.window.rootViewController = self.sideMenu;
     [self configGlobalUIStyle]; //配置全局UI样式

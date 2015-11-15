@@ -14,9 +14,9 @@
 
 @property (nonatomic,assign) NSInteger page;
 
-//@property (nonatomic,assign) NSInteger type;
+@property (nonatomic,strong) NSString *type;
 
-//-(id)initWithPage:(NSInteger)page;
+- (id)initWithType:(NSString *)type;
 
 //节目名称
 - (NSString *)nameForRow:(NSInteger)row;

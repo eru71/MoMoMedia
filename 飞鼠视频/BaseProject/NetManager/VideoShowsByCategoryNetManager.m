@@ -8,8 +8,11 @@
 
 #import "VideoShowsByCategoryNetManager.h"
 #import "VideoCategoryModel.h"
+#import "CategoryModel.h"
+
 #pragma mark - URLs
 #define ShowsURL @"https://openapi.youku.com/v2/shows/by_category.json"
+#define CategoryURL @"https://openapi.youku.com/v2/schemas/video/category.json"
 
 #pragma mark - params
 #define kArea @"area": @"日本"
@@ -19,9 +22,10 @@
 #define kCount @"count": @"2000"
 #define kSetGenre(genre,dic) [dic setObject:[NSString stringWithFormat:@"%@",genre] forKey:@"genre"];
 #define kSetPage(page,dic) [dic setObject:[NSString stringWithFormat:@"%ld",page] forKey:@"page"];
+#define kSetCategory(type,dic) [dic setObject:type forKey:@"category"];
+#define kSetArea(area,dic) [dic setObject:area forKey:@"area"];
 
 @implementation VideoShowsByCategoryNetManager
-
 
 +(id)getAnimeWithType:(VideoAnimeShowsType)type Page:(NSInteger)page completionHandle:(void (^)(id, NSError *))completionHandle{
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kArea,kCategoryAnime,kClient_id,kOrderby,kCount}];
@@ -56,11 +60,29 @@
     }];
 }
 
++(id)getAnimeWithMainType:(NSString *)type Page:(NSInteger)page completionHandle:(void (^)(id, NSError *))completionHandle{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kClient_id,kOrderby,kCount}];
+    kSetPage(page, params)
+    kSetCategory(type, params)
+    if ([type isEqualToString:@"动漫"]) {
+        kSetArea(@"日本", params)
+    }
+    return [self GET:ShowsURL parameters:params completionHandler:^(id responseObj, NSError *error) {
+        completionHandle([VideoCategoryModel mj_objectWithKeyValues:responseObj],error);
+    }];
+}
+
 +(id)getAnimeWithPage:(NSInteger)page completionHandle:(void(^)(id, NSError *))completionHandle{
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kArea,kCategoryAnime,kClient_id,kOrderby,kCount}];
     kSetPage(page, params)
     return [self GET:ShowsURL parameters:params completionHandler:^(id responseObj, NSError *error) {
         completionHandle([VideoCategoryModel mj_objectWithKeyValues:responseObj],error);
+    }];
+}
+
++(id)getCategoryCompletionHandle:(void (^)(id, NSError *))completionHandle{
+    return [self GET:CategoryURL parameters:nil completionHandler:^(id responseObj, NSError *error) {
+        completionHandle([CategoryModel mj_objectWithKeyValues:responseObj],error);
     }];
 }
 

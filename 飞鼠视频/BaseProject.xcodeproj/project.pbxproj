@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0063DC8A1BF89C3500B66A98 /* VategoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0063DC891BF89C3500B66A98 /* VategoryViewModel.m */; };
+		0063DC8D1BF8A13900B66A98 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0063DC8C1BF8A13900B66A98 /* CategoryViewController.m */; };
+		0070B99B1BF86D6B00EA01CC /* ShowsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0070B99A1BF86D6B00EA01CC /* ShowsCollectionViewCell.m */; };
+		0070B99E1BF86FB000EA01CC /* ShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0070B99D1BF86FB000EA01CC /* ShowsViewController.m */; };
 		0075DB711BF75DD100A18D96 /* AnimeShowsWMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0075DB701BF75DD100A18D96 /* AnimeShowsWMPageController.m */; };
-		00EB44301BF4D3E7002B7375 /* MediaListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EB442F1BF4D3E7002B7375 /* MediaListCell.m */; };
 		00EB44421BF50A04002B7375 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EB44411BF50A04002B7375 /* AVKit.framework */; };
 		00EB44441BF50A09002B7375 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EB44431BF50A09002B7375 /* AVFoundation.framework */; };
 		1FACF87C97D68F953ECE365C /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAAD623A23724C816F8DC02 /* libPods-BaseProject.a */; };
@@ -77,15 +80,20 @@
 		855721781BF72A00000B664A /* AnimeShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 855721771BF72A00000B664A /* AnimeShowsViewController.m */; };
 		859F9F661BF218A60062922D /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F651BF218A60062922D /* LeftViewController.m */; };
 		859F9F6C1BF21C670062922D /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F6B1BF21C670062922D /* Factory.m */; };
-		85D644ED1BF1BEE0009D24C5 /* InforMationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D644EC1BF1BEE0009D24C5 /* InforMationCell.m */; };
 		85D644F01BF1BF3C009D24C5 /* TRImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D644EF1BF1BF3C009D24C5 /* TRImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0063DC881BF89C3500B66A98 /* VategoryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VategoryViewModel.h; sourceTree = "<group>"; };
+		0063DC891BF89C3500B66A98 /* VategoryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VategoryViewModel.m; sourceTree = "<group>"; };
+		0063DC8B1BF8A13900B66A98 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		0063DC8C1BF8A13900B66A98 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		0070B9991BF86D6B00EA01CC /* ShowsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowsCollectionViewCell.h; sourceTree = "<group>"; };
+		0070B99A1BF86D6B00EA01CC /* ShowsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowsCollectionViewCell.m; sourceTree = "<group>"; };
+		0070B99C1BF86FB000EA01CC /* ShowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowsViewController.h; sourceTree = "<group>"; };
+		0070B99D1BF86FB000EA01CC /* ShowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowsViewController.m; sourceTree = "<group>"; };
 		0075DB6F1BF75DD100A18D96 /* AnimeShowsWMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimeShowsWMPageController.h; sourceTree = "<group>"; };
 		0075DB701BF75DD100A18D96 /* AnimeShowsWMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimeShowsWMPageController.m; sourceTree = "<group>"; };
-		00EB442E1BF4D3E7002B7375 /* MediaListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaListCell.h; sourceTree = "<group>"; };
-		00EB442F1BF4D3E7002B7375 /* MediaListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaListCell.m; sourceTree = "<group>"; };
 		00EB44411BF50A04002B7375 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		00EB44431BF50A09002B7375 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3804CE491BD758F10046C8C8 /* AppDelegate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Category.h"; sourceTree = "<group>"; };
@@ -198,8 +206,6 @@
 		859F9F651BF218A60062922D /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		859F9F6A1BF21C670062922D /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		859F9F6B1BF21C670062922D /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
-		85D644EB1BF1BEE0009D24C5 /* InforMationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InforMationCell.h; sourceTree = "<group>"; };
-		85D644EC1BF1BEE0009D24C5 /* InforMationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InforMationCell.m; sourceTree = "<group>"; };
 		85D644EE1BF1BF3C009D24C5 /* TRImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRImageView.h; sourceTree = "<group>"; };
 		85D644EF1BF1BF3C009D24C5 /* TRImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRImageView.m; sourceTree = "<group>"; };
 		DD4F0750B5DAAA87BA236B31 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -505,10 +511,8 @@
 			children = (
 				85D644EE1BF1BF3C009D24C5 /* TRImageView.h */,
 				85D644EF1BF1BF3C009D24C5 /* TRImageView.m */,
-				85D644EB1BF1BEE0009D24C5 /* InforMationCell.h */,
-				85D644EC1BF1BEE0009D24C5 /* InforMationCell.m */,
-				00EB442E1BF4D3E7002B7375 /* MediaListCell.h */,
-				00EB442F1BF4D3E7002B7375 /* MediaListCell.m */,
+				0070B9991BF86D6B00EA01CC /* ShowsCollectionViewCell.h */,
+				0070B99A1BF86D6B00EA01CC /* ShowsCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -542,6 +546,10 @@
 				0075DB701BF75DD100A18D96 /* AnimeShowsWMPageController.m */,
 				855721761BF72A00000B664A /* AnimeShowsViewController.h */,
 				855721771BF72A00000B664A /* AnimeShowsViewController.m */,
+				0070B99C1BF86FB000EA01CC /* ShowsViewController.h */,
+				0070B99D1BF86FB000EA01CC /* ShowsViewController.m */,
+				0063DC8B1BF8A13900B66A98 /* CategoryViewController.h */,
+				0063DC8C1BF8A13900B66A98 /* CategoryViewController.m */,
 			);
 			name = VideoShows;
 			sourceTree = "<group>";
@@ -551,6 +559,8 @@
 			children = (
 				855721731BF7081A000B664A /* VideoShowsViewModel.h */,
 				855721741BF7081A000B664A /* VideoShowsViewModel.m */,
+				0063DC881BF89C3500B66A98 /* VategoryViewModel.h */,
+				0063DC891BF89C3500B66A98 /* VategoryViewModel.m */,
 			);
 			name = VideoShows;
 			sourceTree = "<group>";
@@ -735,14 +745,15 @@
 				855721671BF6D483000B664A /* CategoryModel.m in Sources */,
 				3804CE541BD758F10046C8C8 /* NSString+QRCode.m in Sources */,
 				3885C8FA1BE8E96A009441EA /* PSCollectionViewCell.m in Sources */,
+				0063DC8D1BF8A13900B66A98 /* CategoryViewController.m in Sources */,
 				3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */,
+				0070B99B1BF86D6B00EA01CC /* ShowsCollectionViewCell.m in Sources */,
 				3885C8F91BE8E96A009441EA /* PSCollectionView.m in Sources */,
 				3886C09B1BD748830014E661 /* AppDelegate.m in Sources */,
 				855721751BF7081A000B664A /* VideoShowsViewModel.m in Sources */,
 				85D644F01BF1BF3C009D24C5 /* TRImageView.m in Sources */,
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
 				859F9F661BF218A60062922D /* LeftViewController.m in Sources */,
-				00EB44301BF4D3E7002B7375 /* MediaListCell.m in Sources */,
 				0075DB711BF75DD100A18D96 /* AnimeShowsWMPageController.m in Sources */,
 				8557216A1BF6D7F6000B664A /* GenreModel.m in Sources */,
 				3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */,
@@ -751,12 +762,13 @@
 				3885C8FB1BE8E96A009441EA /* README.md in Sources */,
 				855721641BF6D440000B664A /* VideoCategoryModel.m in Sources */,
 				859F9F6C1BF21C670062922D /* Factory.m in Sources */,
-				85D644ED1BF1BEE0009D24C5 /* InforMationCell.m in Sources */,
 				3886C0C11BD74B090014E661 /* BaseModel.m in Sources */,
 				855721781BF72A00000B664A /* AnimeShowsViewController.m in Sources */,
 				3886C0981BD748830014E661 /* main.m in Sources */,
 				855721711BF70189000B664A /* VideoShowsViewController.m in Sources */,
 				3804CE521BD758F10046C8C8 /* NSObject+Common.m in Sources */,
+				0063DC8A1BF89C3500B66A98 /* VategoryViewModel.m in Sources */,
+				0070B99E1BF86FB000EA01CC /* ShowsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

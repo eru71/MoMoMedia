@@ -32,12 +32,23 @@
     
 //    AnimeShowsWMPageController *avc = [AnimeShowsWMPageController standardShows];
     
-    AnimeShowsViewController *avc = [AnimeShowsViewController new];
-    
+    AnimeShowsViewController *avc = [[AnimeShowsViewController alloc]initWithType:@"动漫"];
     UINavigationController *navc = [[UINavigationController alloc]initWithRootViewController:avc];
+    navc.title = @"动漫";
     
-    self.viewControllers = @[navc];
+    AnimeShowsViewController *mvc = [[AnimeShowsViewController alloc]initWithType:@"电影"];
+    UINavigationController *nmvc = [[UINavigationController alloc]initWithRootViewController:mvc];
+    nmvc.title = @"电影";
     
+    AnimeShowsViewController *tvc = [[AnimeShowsViewController alloc]initWithType:@"电视剧"];
+    UINavigationController *ntvc = [[UINavigationController alloc]initWithRootViewController:tvc];
+    ntvc.title = @"电视剧";
+    
+    AnimeShowsViewController *vvc = [[AnimeShowsViewController alloc]initWithType:@"综艺"];
+    UINavigationController *nvvc = [[UINavigationController alloc]initWithRootViewController:vvc];
+    nvvc.title = @"综艺";
+    
+    self.viewControllers = @[navc,nmvc,ntvc,nvvc];
 }
 
 - (void)didReceiveMemoryWarning {

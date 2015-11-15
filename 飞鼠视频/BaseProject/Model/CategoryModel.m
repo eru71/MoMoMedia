@@ -10,6 +10,13 @@
 
 @implementation CategoryModel
 
++ (NSDictionary *)objectClassInArray{
+    return @{@"categories" : [CategoryCategoriesModel class]};
+}
+@end
+
+@implementation CategoryCategoriesModel
 
 @end
+
 

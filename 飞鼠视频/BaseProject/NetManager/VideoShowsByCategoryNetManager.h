@@ -20,7 +20,11 @@ typedef NS_ENUM(NSUInteger, VideoAnimeShowsType) {
 
 //+ (id)getAnimeWithType:(VideoAnimeShowsType)type Page:(NSInteger)page kCompletionHandle;
 
-
 + (id)getAnimeWithPage:(NSInteger)page kCompletionHandle;
+
++ (id)getAnimeWithMainType:(NSString *)type Page:(NSInteger)page kCompletionHandle;
+
++ (id)getCategoryCompletionHandle:(void(^)(id model, NSError *error))completionHandle;
+
 
 @end

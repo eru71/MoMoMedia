@@ -27,8 +27,8 @@
 + (void)addBackItemToVC:(UIViewController *)vc
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:@"nav_btn_back_tiny_pressed"] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"nav_btn_back_tiny_normal"] forState:UIControlStateHighlighted];
+    [btn setImage:[UIImage imageNamed:@"icon_back_h"] forState:UIControlStateNormal];
+//    [btn setImage:[UIImage imageNamed:@"icon_back_h"] forState:UIControlStateHighlighted];
     btn.frame = CGRectMake(0, 0, 45, 44);
     [btn bk_addEventHandler:^(id sender) {
         [vc.navigationController popViewControllerAnimated:YES];

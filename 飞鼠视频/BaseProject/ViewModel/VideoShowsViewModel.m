@@ -11,18 +11,31 @@
 #import "VideoCategoryModel.h"
 @implementation VideoShowsViewModel
 
+-(id)initWithType:(NSString *)type{
+    if (self = [super init]) {
+        _type = type;
+    }
+    return self;
+}
+
+//预防性编程，防止没有使用initWithType初始化
+- (id)init{
+    if (self = [super init]) {
+        //如果使用此方法初始化，那么崩溃提示
+        NSAssert1(NO, @"%s 必须使用initWithType初始化", __func__);
+    }
+    return self;
+}
+
 -(NSInteger)rowNumber{
     return self.dataArr.count;
 }
 
-//-(id)initWithPage:(NSInteger)page{
-//    if (self = [super init]) {
-//        self.page = page;
-//    }return self;
-//}
-
 //-(void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-//    self.dataTask = [VideoShowsByCategoryNetManager getAnimeWithType:(NSInteger)_type Page:_page completionHandle:^(VideoCategoryModel* model, NSError *error) {
+//
+//    _page += 1;
+//
+//    self.dataTask = [VideoShowsByCategoryNetManager getAnimeWithPage:_page completionHandle:^(VideoCategoryModel* model, NSError *error) {
 //        if (_page == 0) {
 //            [self.dataArr removeAllObjects];
 //        }
@@ -32,10 +45,10 @@
 //}
 
 -(void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-
+    
     _page += 1;
-
-    self.dataTask = [VideoShowsByCategoryNetManager getAnimeWithPage:_page completionHandle:^(VideoCategoryModel* model, NSError *error) {
+    
+    self.dataTask = [VideoShowsByCategoryNetManager getAnimeWithMainType:_type Page:_page completionHandle:^(VideoCategoryModel* model, NSError *error) {
         if (_page == 0) {
             [self.dataArr removeAllObjects];
         }
@@ -75,13 +88,7 @@
 //节目最后更新的时间
 - (NSString *)lastupdateForRow:(NSInteger)row{
     NSString *date =[self modelForRow:row].lastupdate;
-//    NSInteger year =[date substringWithRange:NSMakeRange(0, 4)].integerValue;
-//    NSInteger month = [date substringWithRange:NSMakeRange(5, 2)].integerValue;
-//    NSInteger day = [date substringWithRange:NSMakeRange(8, 2)].integerValue;
-//    NSInteger hour = [date substringWithRange:NSMakeRange(11, 2)].integerValue;
-//    NSInteger minute = [date substringWithRange:NSMakeRange(14, 2)].integerValue;
-//    NSInteger second = [date substringWithRange:NSMakeRange(17, 2)].integerValue;
-//    DDLogVerbose(@"%@,%ld,%ld,%ld,%ld,%ld,%ld",date,year,month,day,hour,minute,second);
+
     date = [self returnUploadTime:date];
     return date;
 }

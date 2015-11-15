@@ -10,4 +10,8 @@
 
 @interface AnimeShowsViewController : UIViewController
 
+@property (nonatomic,strong) NSString *type;
+
+- (id)initWithType:(NSString *)type;
+
 @end
