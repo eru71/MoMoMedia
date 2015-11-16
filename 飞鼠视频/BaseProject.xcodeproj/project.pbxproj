@@ -80,6 +80,8 @@
 		855721781BF72A00000B664A /* AnimeShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 855721771BF72A00000B664A /* AnimeShowsViewController.m */; };
 		859F9F661BF218A60062922D /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F651BF218A60062922D /* LeftViewController.m */; };
 		859F9F6C1BF21C670062922D /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F6B1BF21C670062922D /* Factory.m */; };
+		85D477E01BFA0C30004453D9 /* CategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D477DF1BFA0C30004453D9 /* CategoryCollectionViewCell.m */; };
+		85D477E31BFA0D34004453D9 /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D477E21BFA0D34004453D9 /* CategoryTableViewController.m */; };
 		85D644F01BF1BF3C009D24C5 /* TRImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D644EF1BF1BF3C009D24C5 /* TRImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -206,6 +208,10 @@
 		859F9F651BF218A60062922D /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		859F9F6A1BF21C670062922D /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		859F9F6B1BF21C670062922D /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		85D477DE1BFA0C30004453D9 /* CategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		85D477DF1BFA0C30004453D9 /* CategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCollectionViewCell.m; sourceTree = "<group>"; };
+		85D477E11BFA0D34004453D9 /* CategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewController.h; sourceTree = "<group>"; };
+		85D477E21BFA0D34004453D9 /* CategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewController.m; sourceTree = "<group>"; };
 		85D644EE1BF1BF3C009D24C5 /* TRImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRImageView.h; sourceTree = "<group>"; };
 		85D644EF1BF1BF3C009D24C5 /* TRImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRImageView.m; sourceTree = "<group>"; };
 		DD4F0750B5DAAA87BA236B31 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -513,6 +519,8 @@
 				85D644EF1BF1BF3C009D24C5 /* TRImageView.m */,
 				0070B9991BF86D6B00EA01CC /* ShowsCollectionViewCell.h */,
 				0070B99A1BF86D6B00EA01CC /* ShowsCollectionViewCell.m */,
+				85D477DE1BFA0C30004453D9 /* CategoryCollectionViewCell.h */,
+				85D477DF1BFA0C30004453D9 /* CategoryCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -550,6 +558,8 @@
 				0070B99D1BF86FB000EA01CC /* ShowsViewController.m */,
 				0063DC8B1BF8A13900B66A98 /* CategoryViewController.h */,
 				0063DC8C1BF8A13900B66A98 /* CategoryViewController.m */,
+				85D477E11BFA0D34004453D9 /* CategoryTableViewController.h */,
+				85D477E21BFA0D34004453D9 /* CategoryTableViewController.m */,
 			);
 			name = VideoShows;
 			sourceTree = "<group>";
@@ -750,9 +760,11 @@
 				0070B99B1BF86D6B00EA01CC /* ShowsCollectionViewCell.m in Sources */,
 				3885C8F91BE8E96A009441EA /* PSCollectionView.m in Sources */,
 				3886C09B1BD748830014E661 /* AppDelegate.m in Sources */,
+				85D477E01BFA0C30004453D9 /* CategoryCollectionViewCell.m in Sources */,
 				855721751BF7081A000B664A /* VideoShowsViewModel.m in Sources */,
 				85D644F01BF1BF3C009D24C5 /* TRImageView.m in Sources */,
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
+				85D477E31BFA0D34004453D9 /* CategoryTableViewController.m in Sources */,
 				859F9F661BF218A60062922D /* LeftViewController.m in Sources */,
 				0075DB711BF75DD100A18D96 /* AnimeShowsWMPageController.m in Sources */,
 				8557216A1BF6D7F6000B664A /* GenreModel.m in Sources */,

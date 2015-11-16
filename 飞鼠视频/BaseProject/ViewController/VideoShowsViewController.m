@@ -9,6 +9,8 @@
 #import "VideoShowsViewController.h"
 #import "AnimeShowsWMPageController.h"
 #import "AnimeShowsViewController.h"
+#import "CategoryViewController.h"
+#import "CategoryTableViewController.h"
 @interface VideoShowsViewController ()
 
 @end
@@ -48,7 +50,13 @@
     UINavigationController *nvvc = [[UINavigationController alloc]initWithRootViewController:vvc];
     nvvc.title = @"综艺";
     
-    self.viewControllers = @[navc,nmvc,ntvc,nvvc];
+//    CategoryViewController *cvc = [[CategoryViewController alloc]init];
+    CategoryTableViewController *cvc = [CategoryTableViewController new];
+    UINavigationController *ncvc = [[UINavigationController alloc]initWithRootViewController:cvc];
+    cvc.title = @"其他";
+    ncvc.title = @"其他";
+    
+    self.viewControllers = @[navc,nmvc,ntvc,nvvc,ncvc];
 }
 
 - (void)didReceiveMemoryWarning {

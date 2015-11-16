@@ -35,7 +35,7 @@
     }];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     //启动友盟统计功能,用你自己的友盟AppKey，这样你可以在友盟统计上看到数据
-    [MobClick startWithAppkey:@"5632e65ae0f55a556a0013d9"];
+    [MobClick startWithAppkey:@"56496274e0f55ae4d6001803"];//飞鼠视频 友盟 appKey
     //    友盟统计 默认情况下会关掉xcode默认的crash提示
     [MobClick setLogEnabled:YES];
 
