@@ -10,9 +10,10 @@
 #import "AppDelegate+Category.h"
 #import "LeftViewController.h"
 #import "VideoShowsViewController.h"
-#import "VideoShowsByCategoryNetManager.h"
-#import "VategoryViewModel.h"
-#import "VideoShowsViewModel.h"
+//#import "VideoShowsByCategoryNetManager.h"
+//#import "VategoryViewModel.h"
+//#import "VideoShowsViewModel.h"
+//#import "VideosByUserNetModel.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +24,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initializeWithApplication:application];
-    
 
 //    [VideoShowsByCategoryNetManager getAnimeWithPage:1 completionHandle:^(id model, NSError *error) {
 //        NSLog(@"....");
@@ -35,6 +35,10 @@
     
 //    [VideoShowsByCategoryNetManager getCategoryCompletionHandle:^(id model, NSError *error) {
 //        NSLog(@"....");
+//    }];
+    
+//    [VideosByUserNetModel getVideosByUserWithUser:@"克里斯解说" andPage:1 completionHandle:^(id model, NSError *error) {
+//        NSLog(@"..");
 //    }];
     
     self.window.rootViewController = self.sideMenu;

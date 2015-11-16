@@ -17,7 +17,7 @@
 #pragma mark - params
 #define kArea @"area": @"日本"
 #define kCategoryAnime @"category": @"动漫"
-#define kClient_id @"client_id": @"3f00be3594932727"
+
 #define kOrderby @"orderby": @"lastupdate"
 #define kCount @"count": @"2000"
 #define kSetGenre(genre,dic) [dic setObject:[NSString stringWithFormat:@"%@",genre] forKey:@"genre"];

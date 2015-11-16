@@ -9,7 +9,7 @@
 #import "LeftViewController.h"
 
 #import "VideoShowsViewController.h"
-
+#import "FollowingWMPageController.h"
  
 @interface LeftViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -17,13 +17,8 @@
 @end
 @implementation LeftViewController
 
-
-//-(BOOL)prefersStatusBarHidden{
-//    return NO;
-//}
-
 - (NSArray *)itemNames{
-    return @[@"节目"];
+    return @[@"节目",@"订阅"];
 }
 - (UITableView *)tableView{
     if (!_tableView) {
@@ -64,6 +59,10 @@ kRemoveCellSeparator
     switch (indexPath.row) {
         case 0:
             [self.sideMenuViewController setContentViewController:[VideoShowsViewController standardNavi] animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
+        case 1:
+            [self.sideMenuViewController setContentViewController:[FollowingWMPageController standardFollowNavi]animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         default:

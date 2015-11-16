@@ -12,6 +12,10 @@
 		0070B99B1BF86D6B00EA01CC /* ShowsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0070B99A1BF86D6B00EA01CC /* ShowsCollectionViewCell.m */; };
 		0070B99E1BF86FB000EA01CC /* ShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0070B99D1BF86FB000EA01CC /* ShowsViewController.m */; };
 		0075DB711BF75DD100A18D96 /* AnimeShowsWMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0075DB701BF75DD100A18D96 /* AnimeShowsWMPageController.m */; };
+		0088DF681BFA4CC200836B91 /* UserFollowingNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088DF671BFA4CC200836B91 /* UserFollowingNetManager.m */; };
+		0088DF6B1BFA580100836B91 /* VideosByUserNetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088DF6A1BFA580100836B91 /* VideosByUserNetModel.m */; };
+		0088DF6F1BFA63CF00836B91 /* FollowingWMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088DF6E1BFA63CF00836B91 /* FollowingWMPageController.m */; };
+		0088DF721BFA646200836B91 /* VideosByUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088DF711BFA646200836B91 /* VideosByUserViewController.m */; };
 		00EB44421BF50A04002B7375 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EB44411BF50A04002B7375 /* AVKit.framework */; };
 		00EB44441BF50A09002B7375 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EB44431BF50A09002B7375 /* AVFoundation.framework */; };
 		1FACF87C97D68F953ECE365C /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAAD623A23724C816F8DC02 /* libPods-BaseProject.a */; };
@@ -98,6 +102,14 @@
 		0070B99D1BF86FB000EA01CC /* ShowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowsViewController.m; sourceTree = "<group>"; };
 		0075DB6F1BF75DD100A18D96 /* AnimeShowsWMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimeShowsWMPageController.h; sourceTree = "<group>"; };
 		0075DB701BF75DD100A18D96 /* AnimeShowsWMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimeShowsWMPageController.m; sourceTree = "<group>"; };
+		0088DF661BFA4CC200836B91 /* UserFollowingNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFollowingNetManager.h; sourceTree = "<group>"; };
+		0088DF671BFA4CC200836B91 /* UserFollowingNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFollowingNetManager.m; sourceTree = "<group>"; };
+		0088DF691BFA580100836B91 /* VideosByUserNetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideosByUserNetModel.h; sourceTree = "<group>"; };
+		0088DF6A1BFA580100836B91 /* VideosByUserNetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideosByUserNetModel.m; sourceTree = "<group>"; };
+		0088DF6D1BFA63CF00836B91 /* FollowingWMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingWMPageController.h; sourceTree = "<group>"; };
+		0088DF6E1BFA63CF00836B91 /* FollowingWMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingWMPageController.m; sourceTree = "<group>"; };
+		0088DF701BFA646200836B91 /* VideosByUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideosByUserViewController.h; sourceTree = "<group>"; };
+		0088DF711BFA646200836B91 /* VideosByUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideosByUserViewController.m; sourceTree = "<group>"; };
 		00EB44411BF50A04002B7375 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		00EB44431BF50A09002B7375 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3804CE491BD758F10046C8C8 /* AppDelegate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Category.h"; sourceTree = "<group>"; };
@@ -252,6 +264,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0088DF6C1BFA635700836B91 /* Following */ = {
+			isa = PBXGroup;
+			children = (
+				0088DF6D1BFA63CF00836B91 /* FollowingWMPageController.h */,
+				0088DF6E1BFA63CF00836B91 /* FollowingWMPageController.m */,
+				0088DF701BFA646200836B91 /* VideosByUserViewController.h */,
+				0088DF711BFA646200836B91 /* VideosByUserViewController.m */,
+			);
+			name = Following;
+			sourceTree = "<group>";
+		};
 		3804CE481BD758F10046C8C8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +509,10 @@
 				3886C0BD1BD74AFE0014E661 /* BaseNetManager.m */,
 				8557216B1BF6DC17000B664A /* VideoShowsByCategoryNetManager.h */,
 				8557216C1BF6DC17000B664A /* VideoShowsByCategoryNetManager.m */,
+				0088DF661BFA4CC200836B91 /* UserFollowingNetManager.h */,
+				0088DF671BFA4CC200836B91 /* UserFollowingNetManager.m */,
+				0088DF691BFA580100836B91 /* VideosByUserNetModel.h */,
+				0088DF6A1BFA580100836B91 /* VideosByUserNetModel.m */,
 			);
 			path = NetManager;
 			sourceTree = "<group>";
@@ -538,6 +565,7 @@
 		3886C0B61BD74A4A0014E661 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0088DF6C1BFA635700836B91 /* Following */,
 				8557216E1BF7013D000B664A /* VideoShows */,
 				859F9F641BF218A60062922D /* LeftViewController.h */,
 				859F9F651BF218A60062922D /* LeftViewController.m */,
@@ -766,6 +794,7 @@
 				3804CE541BD758F10046C8C8 /* NSString+QRCode.m in Sources */,
 				85D477E91BFA1768004453D9 /* VideosByUserModel.m in Sources */,
 				3885C8FA1BE8E96A009441EA /* PSCollectionViewCell.m in Sources */,
+				0088DF6B1BFA580100836B91 /* VideosByUserNetModel.m in Sources */,
 				0063DC8D1BF8A13900B66A98 /* CategoryViewController.m in Sources */,
 				3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */,
 				0070B99B1BF86D6B00EA01CC /* ShowsCollectionViewCell.m in Sources */,
@@ -780,8 +809,11 @@
 				859F9F661BF218A60062922D /* LeftViewController.m in Sources */,
 				0075DB711BF75DD100A18D96 /* AnimeShowsWMPageController.m in Sources */,
 				8557216A1BF6D7F6000B664A /* GenreModel.m in Sources */,
+				0088DF681BFA4CC200836B91 /* UserFollowingNetManager.m in Sources */,
 				3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */,
+				0088DF721BFA646200836B91 /* VideosByUserViewController.m in Sources */,
 				3886C0BB1BD74AE90014E661 /* BaseViewModel.m in Sources */,
+				0088DF6F1BFA63CF00836B91 /* FollowingWMPageController.m in Sources */,
 				8557216D1BF6DC17000B664A /* VideoShowsByCategoryNetManager.m in Sources */,
 				3885C8FB1BE8E96A009441EA /* README.md in Sources */,
 				855721641BF6D440000B664A /* VideoCategoryModel.m in Sources */,
