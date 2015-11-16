@@ -82,6 +82,8 @@
 		859F9F6C1BF21C670062922D /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F6B1BF21C670062922D /* Factory.m */; };
 		85D477E01BFA0C30004453D9 /* CategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D477DF1BFA0C30004453D9 /* CategoryCollectionViewCell.m */; };
 		85D477E31BFA0D34004453D9 /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D477E21BFA0D34004453D9 /* CategoryTableViewController.m */; };
+		85D477E61BFA1578004453D9 /* UserFollowingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D477E51BFA1578004453D9 /* UserFollowingModel.m */; };
+		85D477E91BFA1768004453D9 /* VideosByUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D477E81BFA1768004453D9 /* VideosByUserModel.m */; };
 		85D644F01BF1BF3C009D24C5 /* TRImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D644EF1BF1BF3C009D24C5 /* TRImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +214,10 @@
 		85D477DF1BFA0C30004453D9 /* CategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCollectionViewCell.m; sourceTree = "<group>"; };
 		85D477E11BFA0D34004453D9 /* CategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewController.h; sourceTree = "<group>"; };
 		85D477E21BFA0D34004453D9 /* CategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewController.m; sourceTree = "<group>"; };
+		85D477E41BFA1578004453D9 /* UserFollowingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFollowingModel.h; sourceTree = "<group>"; };
+		85D477E51BFA1578004453D9 /* UserFollowingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFollowingModel.m; sourceTree = "<group>"; };
+		85D477E71BFA1768004453D9 /* VideosByUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideosByUserModel.h; sourceTree = "<group>"; };
+		85D477E81BFA1768004453D9 /* VideosByUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideosByUserModel.m; sourceTree = "<group>"; };
 		85D644EE1BF1BF3C009D24C5 /* TRImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRImageView.h; sourceTree = "<group>"; };
 		85D644EF1BF1BF3C009D24C5 /* TRImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRImageView.m; sourceTree = "<group>"; };
 		DD4F0750B5DAAA87BA236B31 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -465,6 +471,10 @@
 				855721691BF6D7F6000B664A /* GenreModel.m */,
 				855721621BF6D440000B664A /* VideoCategoryModel.h */,
 				855721631BF6D440000B664A /* VideoCategoryModel.m */,
+				85D477E41BFA1578004453D9 /* UserFollowingModel.h */,
+				85D477E51BFA1578004453D9 /* UserFollowingModel.m */,
+				85D477E71BFA1768004453D9 /* VideosByUserModel.h */,
+				85D477E81BFA1768004453D9 /* VideosByUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -754,10 +764,12 @@
 				3886C0BE1BD74AFE0014E661 /* BaseNetManager.m in Sources */,
 				855721671BF6D483000B664A /* CategoryModel.m in Sources */,
 				3804CE541BD758F10046C8C8 /* NSString+QRCode.m in Sources */,
+				85D477E91BFA1768004453D9 /* VideosByUserModel.m in Sources */,
 				3885C8FA1BE8E96A009441EA /* PSCollectionViewCell.m in Sources */,
 				0063DC8D1BF8A13900B66A98 /* CategoryViewController.m in Sources */,
 				3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */,
 				0070B99B1BF86D6B00EA01CC /* ShowsCollectionViewCell.m in Sources */,
+				85D477E61BFA1578004453D9 /* UserFollowingModel.m in Sources */,
 				3885C8F91BE8E96A009441EA /* PSCollectionView.m in Sources */,
 				3886C09B1BD748830014E661 /* AppDelegate.m in Sources */,
 				85D477E01BFA0C30004453D9 /* CategoryCollectionViewCell.m in Sources */,

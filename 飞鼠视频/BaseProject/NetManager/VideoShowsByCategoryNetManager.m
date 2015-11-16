@@ -27,38 +27,7 @@
 
 @implementation VideoShowsByCategoryNetManager
 
-+(id)getAnimeWithType:(VideoAnimeShowsType)type Page:(NSInteger)page completionHandle:(void (^)(id, NSError *))completionHandle{
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kArea,kCategoryAnime,kClient_id,kOrderby,kCount}];
-    kSetPage(page, params)
-    
-    switch (type) {
-        default:
-            break;
-        case VideoAnimeShowsTypeAll: {
-            break;
-        }
-        case VideoAnimeShowsTypeReasoning: {
-            [params setObject:@"推理" forKey:@"genre"];
-            break;
-        }
-        case VideoAnimeShowsTypeCollege: {
-            [params setObject:@"校园" forKey:@"genre"];
-            break;
-        }
-        case VideoAnimeShowsTypeFighting: {
-            [params setObject:@"格斗" forKey:@"genre"];
-            break;
-        }
-        case VideoAnimeShowsTypeEducation: {
-            [params setObject:@"教育" forKey:@"genre"];
-            break;
-        }
-    }
 
-    return [self GET:ShowsURL parameters:params completionHandler:^(id responseObj, NSError *error) {
-        completionHandle([VideoCategoryModel mj_objectWithKeyValues:responseObj],error);
-    }];
-}
 
 +(id)getAnimeWithMainType:(NSString *)type Page:(NSInteger)page completionHandle:(void (^)(id, NSError *))completionHandle{
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kClient_id,kOrderby,kCount}];
@@ -85,5 +54,40 @@
         completionHandle([CategoryModel mj_objectWithKeyValues:responseObj],error);
     }];
 }
+
+/*
+ +(id)getAnimeWithType:(VideoAnimeShowsType)type Page:(NSInteger)page completionHandle:(void (^)(id, NSError *))completionHandle{
+ NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kArea,kCategoryAnime,kClient_id,kOrderby,kCount}];
+ kSetPage(page, params)
+ 
+ switch (type) {
+ default:
+ break;
+ case VideoAnimeShowsTypeAll: {
+ break;
+ }
+ case VideoAnimeShowsTypeReasoning: {
+ [params setObject:@"推理" forKey:@"genre"];
+ break;
+ }
+ case VideoAnimeShowsTypeCollege: {
+ [params setObject:@"校园" forKey:@"genre"];
+ break;
+ }
+ case VideoAnimeShowsTypeFighting: {
+ [params setObject:@"格斗" forKey:@"genre"];
+ break;
+ }
+ case VideoAnimeShowsTypeEducation: {
+ [params setObject:@"教育" forKey:@"genre"];
+ break;
+ }
+ }
+ 
+ return [self GET:ShowsURL parameters:params completionHandler:^(id responseObj, NSError *error) {
+ completionHandle([VideoCategoryModel mj_objectWithKeyValues:responseObj],error);
+ }];
+ }
+ */
 
 @end

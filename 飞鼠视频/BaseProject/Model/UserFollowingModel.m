@@ -1,29 +1,25 @@
 //
-//  VideoCategoryModel.m
+//  UserFollowingModel.m
 //  BaseProject
 //
-//  Created by tarena on 15/11/14.
+//  Created by tarena on 15/11/16.
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
-#import "VideoCategoryModel.h"
+#import "UserFollowingModel.h"
 
-@implementation VideoCategoryModel
-
+@implementation UserFollowingModel
 
 + (NSDictionary *)objectClassInArray{
-    return @{@"shows" : [VideoCategoryShowsModel class]};
+    return @{@"users" : [UserFollowingUsersModel class]};
 }
 
 @end
 
-
-@implementation VideoCategoryShowsModel
+@implementation UserFollowingUsersModel
 
 + (NSString *)mj_replacedKeyFromPropertyName121:(NSString *)propertyName{
     return [propertyName mj_underlineFromCamel];
 }
 
 @end
-
-

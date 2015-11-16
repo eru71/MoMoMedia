@@ -16,9 +16,7 @@ MJCodingImplementation
     return @{@"typeName": @"typename", @"ID": @"id", @"desc": @"description"};
 }
 
-+ (NSString *)mj_replacedKeyFromPropertyName121:(NSString *)propertyName{
-    return [propertyName mj_underlineFromCamel];
-}
+
 
 @end
 
