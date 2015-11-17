@@ -30,4 +30,6 @@ typedef void(^CompletionHandle)(NSError *error);
 - (void)suspendTask; //暂停任务
 - (void)resumeTask;  //继续任务
 
+- (NSString *)returnUploadTime:(NSString *)lastupdate;
+
 @end

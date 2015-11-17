@@ -21,6 +21,11 @@
 @implementation VideosByUserVideosModel
 
 + (NSString *)mj_replacedKeyFromPropertyName121:(NSString *)propertyName{
+    
+    if ([propertyName isEqualToString:@"bigThumbnail"]) {
+        return propertyName;
+    }
+    
     return [propertyName mj_underlineFromCamel];
 }
 

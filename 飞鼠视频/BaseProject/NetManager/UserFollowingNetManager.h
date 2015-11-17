@@ -10,6 +10,6 @@
 
 @interface UserFollowingNetManager : BaseNetManager
 
-+ (id)getUserFollowingWithUserName:(NSString *)name completionHandle:(void(^)(id model, NSError *error))completionHandle;
++ (id)getUserFollowingWithUserName:(NSString *)name Page:(NSInteger)page completionHandle:(void(^)(id model, NSError *error))completionHandle;
 
 @end

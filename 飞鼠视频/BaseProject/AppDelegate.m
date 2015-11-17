@@ -41,6 +41,12 @@
 //        NSLog(@"..");
 //    }];
     
+//    NSString *path = user_data;
+//    NSDictionary *userInfo = @{@"name":@"Colette71",@"userFollowing":@"克里斯解说;sinbasara"};
+//    [userInfo writeToFile:user_data atomically:YES];
+//    NSLog(@"%@,%@",path,userInfo);
+//    NSLog(@"%@",path);
+    
     self.window.rootViewController = self.sideMenu;
     [self configGlobalUIStyle]; //配置全局UI样式
     return YES;
@@ -75,7 +81,7 @@
         _sideMenu.backgroundImage = [UIImage imageWithColor:[UIColor purpleColor] cornerRadius:1];
         
         //可以让出现菜单时不显示状态栏
-        _sideMenu.menuPrefersStatusBarHidden = YES;
+        _sideMenu.menuPrefersStatusBarHidden = NO;
         //        不允许菜单栏缩小到了边缘还可以继续缩小
         _sideMenu.bouncesHorizontally = NO;
 //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];

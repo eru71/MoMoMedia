@@ -22,7 +22,7 @@
 #endif
 /*Xcode7以下版本需要添加上方宏定义 支持AF*/
 
-
+#define user_data [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"userData.plist"]
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>

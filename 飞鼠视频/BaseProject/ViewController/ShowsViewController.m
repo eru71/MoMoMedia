@@ -38,7 +38,7 @@
         self.request = request;
         self.title = title;
         //推出来 不显示下方栏
-        self.hidesBottomBarWhenPushed = NO;
+//        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }

@@ -10,4 +10,6 @@
 
 @interface VideosByUserViewController : UIViewController
 
+@property(nonatomic,copy) NSString *infoType;
+
 @end

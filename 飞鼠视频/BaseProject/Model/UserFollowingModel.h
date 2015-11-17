@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSArray<UserFollowingUsersModel *> *users;
 
-@property (nonatomic, copy) NSString *total;
+@property (nonatomic) NSInteger total;
 
 @end
 

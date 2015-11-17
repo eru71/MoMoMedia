@@ -11,6 +11,7 @@
 #define kCompletionHandle completionHandle:(void(^)(id model, NSError *error))completionHandle
 #define kClient_id @"client_id": @"3f00be3594932727"
 
+
 @interface BaseNetManager : NSObject
 
 /** 对AFHTTPSessionManager的GET请求方法进行了封装 */

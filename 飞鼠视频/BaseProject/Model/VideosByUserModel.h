@@ -40,7 +40,7 @@
 
 @property (nonatomic, copy) NSString *published;
 
-@property (nonatomic, copy) NSString *link;
+@property (nonatomic, copy) NSURL *link;
 
 @property (nonatomic, assign) NSInteger isinteract;
 
@@ -52,7 +52,9 @@
 
 @property (nonatomic, assign) NSInteger downCount;
 
-@property (nonatomic, copy) NSString *thumbnail;
+@property (nonatomic, copy) NSURL *thumbnail;
+
+@property (nonatomic,copy) NSURL *bigThumbnail;
 
 @property (nonatomic, assign) CGFloat duration;
 

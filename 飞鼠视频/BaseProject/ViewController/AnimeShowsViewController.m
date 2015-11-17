@@ -61,9 +61,11 @@
     cell.lastupdateLb.text = [self.vsVM lastupdateForRow:indexPath.row];
     cell.episodeUpdatedLb.text = [self.vsVM episodeUpdatedForRow:indexPath.row];
     [cell.playingBtn bk_addEventHandler:^(id sender) {
+        
         ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:cell.nameLb.text];
         [self.navigationController pushViewController:lastVideoVC animated:YES];
 //        [self presentViewController:lastVideoVC animated:YES completion:nil];
+        
     } forControlEvents:UIControlEventTouchUpInside];
     
     return cell;

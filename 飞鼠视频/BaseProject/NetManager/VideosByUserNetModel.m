@@ -9,7 +9,8 @@
 #import "VideosByUserNetModel.h"
 #import "VideosByUserModel.h"
 
-#define kCount @"count": @"100"
+//每页内含量
+#define kCount @"count": @"20"
 #define kSetUserName(name,dic) [dic setObject:name forKey:@"user_name"];
 #define kSetPage(page,dic) [dic setObject:[NSString stringWithFormat:@"%ld",page] forKey:@"page"];
 #define VideosByUserURL @"https://openapi.youku.com/v2/videos/by_user.json"
