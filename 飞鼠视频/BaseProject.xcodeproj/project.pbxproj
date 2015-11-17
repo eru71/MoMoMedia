@@ -11,7 +11,6 @@
 		0063DC8D1BF8A13900B66A98 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0063DC8C1BF8A13900B66A98 /* CategoryViewController.m */; };
 		0070B99B1BF86D6B00EA01CC /* ShowsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0070B99A1BF86D6B00EA01CC /* ShowsCollectionViewCell.m */; };
 		0070B99E1BF86FB000EA01CC /* ShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0070B99D1BF86FB000EA01CC /* ShowsViewController.m */; };
-		0075DB711BF75DD100A18D96 /* AnimeShowsWMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0075DB701BF75DD100A18D96 /* AnimeShowsWMPageController.m */; };
 		0088DF681BFA4CC200836B91 /* UserFollowingNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088DF671BFA4CC200836B91 /* UserFollowingNetManager.m */; };
 		0088DF6B1BFA580100836B91 /* VideosByUserNetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088DF6A1BFA580100836B91 /* VideosByUserNetModel.m */; };
 		0088DF6F1BFA63CF00836B91 /* FollowingWMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088DF6E1BFA63CF00836B91 /* FollowingWMPageController.m */; };
@@ -103,8 +102,6 @@
 		0070B99A1BF86D6B00EA01CC /* ShowsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowsCollectionViewCell.m; sourceTree = "<group>"; };
 		0070B99C1BF86FB000EA01CC /* ShowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowsViewController.h; sourceTree = "<group>"; };
 		0070B99D1BF86FB000EA01CC /* ShowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowsViewController.m; sourceTree = "<group>"; };
-		0075DB6F1BF75DD100A18D96 /* AnimeShowsWMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimeShowsWMPageController.h; sourceTree = "<group>"; };
-		0075DB701BF75DD100A18D96 /* AnimeShowsWMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimeShowsWMPageController.m; sourceTree = "<group>"; };
 		0088DF661BFA4CC200836B91 /* UserFollowingNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFollowingNetManager.h; sourceTree = "<group>"; };
 		0088DF671BFA4CC200836B91 /* UserFollowingNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFollowingNetManager.m; sourceTree = "<group>"; };
 		0088DF691BFA580100836B91 /* VideosByUserNetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideosByUserNetModel.h; sourceTree = "<group>"; };
@@ -600,8 +597,6 @@
 			children = (
 				8557216F1BF70189000B664A /* VideoShowsViewController.h */,
 				855721701BF70189000B664A /* VideoShowsViewController.m */,
-				0075DB6F1BF75DD100A18D96 /* AnimeShowsWMPageController.h */,
-				0075DB701BF75DD100A18D96 /* AnimeShowsWMPageController.m */,
 				855721761BF72A00000B664A /* AnimeShowsViewController.h */,
 				855721771BF72A00000B664A /* AnimeShowsViewController.m */,
 				0070B99C1BF86FB000EA01CC /* ShowsViewController.h */,
@@ -831,7 +826,6 @@
 				85B523851BFAC0CC00149568 /* VideosByUserViewModel.m in Sources */,
 				85D477E31BFA0D34004453D9 /* CategoryTableViewController.m in Sources */,
 				859F9F661BF218A60062922D /* LeftViewController.m in Sources */,
-				0075DB711BF75DD100A18D96 /* AnimeShowsWMPageController.m in Sources */,
 				8557216A1BF6D7F6000B664A /* GenreModel.m in Sources */,
 				0088DF681BFA4CC200836B91 /* UserFollowingNetManager.m in Sources */,
 				3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */,

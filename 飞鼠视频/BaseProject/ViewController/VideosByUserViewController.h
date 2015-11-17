@@ -12,4 +12,8 @@
 
 @property(nonatomic,copy) NSString *infoType;
 
++ (UINavigationController *)standardNavi;
+
+- (id)initWithInfoType:(NSString *)infoType;
+
 @end

@@ -38,7 +38,7 @@
             [self.tableView.mj_header endRefreshing];
         }];
     }];
-    
+    self.tableView.bounces = YES;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 

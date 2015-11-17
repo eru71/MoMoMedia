@@ -32,9 +32,6 @@
 }
 
 -(void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-    
-    _page += 1;
-    
     self.dataTask = [VideoShowsByCategoryNetManager getAnimeWithMainType:_type Page:_page completionHandle:^(VideoCategoryModel* model, NSError *error) {
         if (_page == 0) {
             [self.dataArr removeAllObjects];

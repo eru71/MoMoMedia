@@ -116,7 +116,17 @@
                 [_collectionView.mj_header endRefreshing];
             }];
         }];
-        
+        _collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.vVM getMoreDataCompletionHandle:^(NSError *error) {
+                if (error) {
+                    [self showErrorMsg:error.localizedDescription];
+                    
+                }else{
+                    [_collectionView reloadData];
+                }
+                [_collectionView.mj_footer endRefreshing];
+            }];
+        }];
         [_collectionView registerClass:[ShowsCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     }
     return _collectionView;

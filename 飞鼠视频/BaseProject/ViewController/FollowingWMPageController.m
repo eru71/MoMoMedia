@@ -12,19 +12,9 @@
 
 @interface FollowingWMPageController ()
 
-@property (nonatomic,strong) UserFollowingViewModel *ufVM;
-
 @end
 
 @implementation FollowingWMPageController
-
-- (UserFollowingViewModel *)ufVM {
-    if(_ufVM == nil) {
-        NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:user_data];
-        _ufVM = [[UserFollowingViewModel alloc] initWithUserName:dic[@"name"]];
-    }
-    return _ufVM;
-}
 
 + (UINavigationController *)standardFollowNavi{
     static UINavigationController *navi = nil;
@@ -34,35 +24,47 @@
         //例如设置第一个控制器的某个属性的值, KVC
         //vc setValue:[values[0]] forKey:keys[0]
         vc.keys = [self vcKeys];
-        vc.values = [self vcKeys];
+        vc.values = [self vcValues];
         navi = [[UINavigationController alloc] initWithRootViewController:vc];
     });
     return navi;
 }
 
-///** 提供每个VC对应的values值数组 */
-//+ (NSArray *)vcValues{
-//    NSArray *arr = [self itemNames];
+/** 提供每个VC对应的values值数组 */
++ (NSArray *)vcValues{
+//    NSMutableArray *arr = [NSMutableArray new];
+//    for (int i = 0; i <[self itemNames].count; i++) {
+//        //数值上，vc的infoType的枚举值 恰好和i值相同
+//        [arr addObject:@(i)];
+//    }
 //    return arr;
-//}
-/** 提供每个VC对应的key值数组 */
+    NSArray *arr = [self itemNames];
+    return arr;
+
+}
+//* 提供每个VC对应的key值数组 
 + (NSArray *)vcKeys{
     NSMutableArray *arr = [NSMutableArray new];
-    for (id obj in [self itemNames]) {
+    for (int i = 0; i<[self itemNames].count; i++) {
         [arr addObject:@"infoType"];
     }
     return [arr copy];
+//    NSArray *arr = [self itemNames];
+//    return arr;
 }
 
 /** 提供题目数组 */
 + (NSArray *)itemNames{
-    NSMutableArray *arr = [NSMutableArray new];
+//    NSMutableArray *arr = [NSMutableArray new];
+    NSLog(@"%@",user_data);
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:user_data];
-    UserFollowingViewModel *ufVM = [[UserFollowingViewModel alloc] initWithUserName:dic[@"name"]];
-    for (int i = 0; i < ufVM.rowNumber; i++) {
-        [arr addObject:[ufVM nameForRow:i]];
+    NSArray *array = [dic[@"userFollowing"] componentsSeparatedByString:@";"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:user_data]) {
+        
     }
-    return arr;
+    
+    return array;
 }
 /** 提供每个题目对应的控制器的类型。题目和类型数量必须一致 */
 + (NSArray *)viewControllerClasses{
@@ -71,6 +73,10 @@
         [arr addObject:[VideosByUserViewController class]];
     }
     return [arr copy];
+}
+
+-(UIColor *)titleColorNormal{
+    return [UIColor colorWithRed:146/255 green:177/255 blue:0 alpha:1];/////
 }
 
 - (void)viewDidLoad {

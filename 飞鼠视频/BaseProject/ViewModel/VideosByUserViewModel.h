@@ -28,7 +28,7 @@
 
 - (NSString *)categoryForRow:(NSInteger)row;
 
-- (NSInteger)viewCountForRow:(NSInteger)row;
+- (NSString *)viewCountForRow:(NSInteger)row;
 
 - (NSInteger)commentCountForRow:(NSInteger)row;
 

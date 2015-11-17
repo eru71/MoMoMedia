@@ -22,9 +22,29 @@
 
 @implementation VideosByUserViewController
 
++(UINavigationController *)standardNavi{
+    static UINavigationController *navc = nil;
+    static VideosByUserViewController *vc = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        vc = [[VideosByUserViewController alloc]initWithInfoType:@"sinbasara"];
+        
+    });
+    navc = [[UINavigationController alloc]initWithRootViewController:vc];
+    navc.title = @"订阅";
+    return navc;
+}
+
+-(id)initWithInfoType:(NSString *)infoType{
+    if (self = [super init]) {
+        _infoType = infoType;
+    }
+    return self;
+}
+
 - (VideosByUserViewModel *)vbuVM {
     if(_vbuVM == nil) {
-        _vbuVM = [[VideosByUserViewModel alloc] init];
+        _vbuVM = [[VideosByUserViewModel alloc] initWithUserName:_infoType];
     }
     return _vbuVM;
 }
@@ -35,6 +55,7 @@
     //    self.title = @"Anime";
     [self.collectionView reloadData];
     [self.collectionView.mj_header beginRefreshing];
+    [Factory addMenuItemToVC:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,10 +71,11 @@
     VideosByUserCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     cell.title.text = [_vbuVM titileForRow:indexPath.row];
-    
+//    cell.backgroundColor = [UIColor colorWithRed:15/255 green:211/255 blue:222/255 alpha:1];
     //    _vsVM = [[VideoShowsViewModel alloc]initWithType:[self.vVM nameForRow:indexPath.row]];
-    [cell.iconView.imageView setImageWithURL:[self.vbuVM thumbnailForRow:1] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
-    cell.viewCountLb.text = [NSString stringWithFormat:@"%ld",[_vbuVM viewCountForRow:indexPath.row]];
+    [cell.iconView.imageView setImageWithURL:[self.vbuVM thumbnailForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+    
+    cell.viewCountLb.text = [_vbuVM viewCountForRow:indexPath.row];
     cell.publishedLb.text = [self.vbuVM publishedForRow:indexPath.row];
     
     return cell;
@@ -118,7 +140,17 @@
                 [_collectionView.mj_header endRefreshing];
             }];
         }];
-        
+        _collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self.vbuVM getMoreDataCompletionHandle:^(NSError *error) {
+                if (error) {
+                    [self showErrorMsg:error.localizedDescription];
+                    
+                }else{
+                    [_collectionView reloadData];
+                }
+                [_collectionView.mj_footer endRefreshing];
+            }];
+        }];
         [_collectionView registerClass:[VideosByUserCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     }
     return _collectionView;

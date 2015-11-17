@@ -10,12 +10,23 @@
 
 @implementation VideosByUserCollectionViewCell
 
-+(instancetype)cellForTableView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath{
-    VideosByUserCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    cell.backgroundColor = [UIColor colorWithRed:253/255 green:233/255 blue:222/255 alpha:0.5];
-    
-    return cell;
+- (UILabel *)title {
+    if(_title == nil) {
+        _title = [[UILabel alloc] init];
+        _title.font = [UIFont systemFontOfSize:15];
+        _title.textAlignment = NSTextAlignmentLeft;
+        _title.numberOfLines = 2;
+        [self.contentView addSubview:_title];
+        [_title mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+//            make.bottom.mas_equalTo(self.episodeUpdatedLb.mas_top).mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.top.mas_equalTo(self.iconView.mas_bottom).mas_equalTo(0);
+            make.height.mas_lessThanOrEqualTo(30);
+            make.height.mas_greaterThanOrEqualTo(20);
+        }];
+    }
+    return _title;
 }
 
 - (TRImageView *)iconView {
@@ -23,41 +34,22 @@
         _iconView = [[TRImageView alloc] init];
         [self.contentView addSubview:_iconView];
         [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(30);
-            make.top.mas_equalTo(5);
-            make.left.mas_equalTo(5);
-            make.right.mas_equalTo(5);
+            make.left.right.top.mas_equalTo(0);
+            make.bottom.mas_equalTo(_title.mas_top).mas_equalTo(0);
         }];
     }
     return _iconView;
 }
 
-- (UILabel *)title {
-    if(_title == nil) {
-        _title = [[UILabel alloc] init];
-        _title.font = [UIFont systemFontOfSize:14];
-        [self.contentView addSubview:_title];
-        [_title mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(_iconView.mas_bottom).mas_equalTo(5);
-            make.bottom.mas_equalTo(5);
-            make.left.mas_equalTo(5);
-            make.right.mas_equalTo(5);
-        }];
-    }
-    return _title;
-}
-
-- (UIView *)lightGrayView {
-    if(_lightGrayView == nil) {
-        _lightGrayView = [[UIView alloc] init];
+-(UIView *)lightGrayView{
+    if (!_lightGrayView) {
+        _lightGrayView = [UIView new];
         [self.iconView addSubview:_lightGrayView];
         _lightGrayView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
         [_lightGrayView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.mas_equalTo(0);
             make.height.mas_equalTo(20);
-            make.top.mas_equalTo(0);
-            make.right.left.mas_equalTo(0);
         }];
-        
     }
     return _lightGrayView;
 }
@@ -65,12 +57,12 @@
 - (UILabel *)publishedLb {
     if(_publishedLb == nil) {
         _publishedLb = [[UILabel alloc] init];
-        [_lightGrayView addSubview:_publishedLb];
-        _publishedLb.backgroundColor = [UIColor whiteColor];
+        [self.lightGrayView addSubview:_publishedLb];
+        _publishedLb.font = [UIFont systemFontOfSize:13];
+        _publishedLb.textColor = [UIColor whiteColor];
         [_publishedLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.mas_equalTo(0);
-            make.left.mas_equalTo(5);
-            make.right.mas_equalTo(_viewCountLb.mas_left).mas_equalTo(0);
+            make.left.bottom.top.mas_equalTo(0);
+            make.right.mas_equalTo(100);
         }];
     }
     return _publishedLb;
@@ -79,12 +71,13 @@
 -(UILabel *)viewCountLb{
     if (_viewCountLb == nil) {
         _viewCountLb = [[UILabel alloc]init];
-        _viewCountLb.backgroundColor = [UIColor whiteColor];
-        [_lightGrayView addSubview:_viewCountLb];
+        _viewCountLb.textColor = [UIColor whiteColor];
+        _viewCountLb.font = [UIFont systemFontOfSize:13];
+        [self.lightGrayView addSubview:_viewCountLb];
         [_viewCountLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(5);
             make.top.bottom.mas_equalTo(0);
-            make.width.mas_equalTo(70);
+            make.width.mas_equalTo(100);
         }];
     }
     return _viewCountLb;

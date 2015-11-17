@@ -42,6 +42,7 @@
 //    self.title = @"Anime";
     [self.collectionView reloadData];
     [self.collectionView.mj_header beginRefreshing];
+    [Factory addMenuItemToVC:self];
 }
 
 - (void)didReceiveMemoryWarning {

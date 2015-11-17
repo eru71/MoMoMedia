@@ -20,7 +20,6 @@
 
 @property (nonatomic,strong) UILabel *viewCountLb;
 
-+(instancetype)cellForTableView:(UICollectionView *)collectionView indexPath:(NSIndexPath*)indexPath;
 
 
 @end

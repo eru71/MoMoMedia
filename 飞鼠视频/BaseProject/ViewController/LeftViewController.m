@@ -10,7 +10,8 @@
 
 #import "VideoShowsViewController.h"
 #import "FollowingWMPageController.h"
- 
+#import "VideosByUserViewController.h"
+
 @interface LeftViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSArray *itemNames;
@@ -63,6 +64,7 @@ kRemoveCellSeparator
             break;
         case 1:
             [self.sideMenuViewController setContentViewController:[FollowingWMPageController standardFollowNavi]animated:YES];
+//            [self.sideMenuViewController setContentViewController:[VideosByUserViewController standardNavi]];
             [self.sideMenuViewController hideMenuViewController];
             break;
         default:
@@ -71,7 +73,7 @@ kRemoveCellSeparator
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    必须触发一下tableView的懒加载才可以
+    
     [self.tableView reloadData];
 }
 

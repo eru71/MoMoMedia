@@ -12,8 +12,8 @@
 
 + (void)addMenuItemToVC:(UIViewController *)vc{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setBackgroundImage:[UIImage imageNamed:@"stage_6"] forState:UIControlStateNormal];
-    [btn setBackgroundImage:[UIImage imageNamed:@"stage_6"] forState:UIControlStateHighlighted];
+    [btn setBackgroundImage:[UIImage imageNamed:@"detail_cache_download_added_disable"] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageNamed:@"detail_cache_download_added_highlighted-1"] forState:UIControlStateHighlighted];
     btn.frame = CGRectMake(0, 0, 30, 30);
     [btn bk_addEventHandler:^(id sender) {
         [vc.sideMenuViewController presentLeftMenuViewController];
@@ -41,7 +41,17 @@
 }
 + (void)addEnjoyItemToVC:(UIViewController *)vc
 {
-    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed:@"details_icon_share_normal"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"details_icon_share_select"] forState:UIControlStateHighlighted];
+    btn.frame = CGRectMake(0, 0, 50, 50);
+    [btn bk_addEventHandler:^(id sender) {
+        [vc.navigationController popViewControllerAnimated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spaceItem.width = -16;
+    vc.navigationItem.rightBarButtonItems = @[spaceItem,menuItem];
 }
 @end
 

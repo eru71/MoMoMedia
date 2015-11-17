@@ -33,9 +33,9 @@
     [self getDataFromNetCompleteHandle:completionHandle];
 }
 - (void)getMoreDataCompletionHandle:(CompletionHandle)completionHandle{
-    if (_page == _total) {
-        return;
-    }
+//    if (_page == _total) {
+//        return;
+//    }
     _page += 1;
     [self getDataFromNetCompleteHandle:completionHandle];
 }
@@ -45,9 +45,6 @@
 }
 
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-    
-    _page += 1;
-    
     self.dataTask = [UserFollowingNetManager getUserFollowingWithUserName:_userName Page:_page completionHandle:^(UserFollowingModel* model, NSError *error) {
         _total = model.total;
         if (_page == 0) {

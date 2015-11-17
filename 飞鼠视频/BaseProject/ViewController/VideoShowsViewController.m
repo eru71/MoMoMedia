@@ -7,7 +7,7 @@
 //
 
 #import "VideoShowsViewController.h"
-#import "AnimeShowsWMPageController.h"
+
 #import "AnimeShowsViewController.h"
 #import "CategoryViewController.h"
 #import "CategoryTableViewController.h"
@@ -31,9 +31,7 @@
     // Do any additional setup after loading the view.
     
     self.tabBar.translucent = NO;
-    
-//    AnimeShowsWMPageController *avc = [AnimeShowsWMPageController standardShows];
-    
+
     AnimeShowsViewController *avc = [[AnimeShowsViewController alloc]initWithType:@"动漫"];
     UINavigationController *navc = [[UINavigationController alloc]initWithRootViewController:avc];
     navc.title = @"动漫";

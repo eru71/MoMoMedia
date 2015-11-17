@@ -78,8 +78,8 @@
     return [self modelForRow:row].category;
 }
 
-- (NSInteger)viewCountForRow:(NSInteger)row{
-    return [self modelForRow:row].viewCount;
+- (NSString *)viewCountForRow:(NSInteger)row{
+    return [NSString stringWithFormat:@"播放数:%ld",[self modelForRow:row].viewCount];
 }
 
 - (NSInteger)commentCountForRow:(NSInteger)row{
