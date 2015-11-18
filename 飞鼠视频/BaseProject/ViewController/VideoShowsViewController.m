@@ -31,6 +31,7 @@
     // Do any additional setup after loading the view.
     
     self.tabBar.translucent = NO;
+    self.tabBar.backgroundColor = [UIColor blackColor];
 
     AnimeShowsViewController *avc = [[AnimeShowsViewController alloc]initWithType:@"动漫"];
     UINavigationController *navc = [[UINavigationController alloc]initWithRootViewController:avc];

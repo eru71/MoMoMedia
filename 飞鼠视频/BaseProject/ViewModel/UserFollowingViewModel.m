@@ -46,7 +46,7 @@
 
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
     self.dataTask = [UserFollowingNetManager getUserFollowingWithUserName:_userName Page:_page completionHandle:^(UserFollowingModel* model, NSError *error) {
-        _total = model.total;
+//        _total = model.total;
         if (_page == 0) {
             [self.dataArr removeAllObjects];
         }

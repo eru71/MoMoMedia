@@ -13,7 +13,7 @@
 //#import "VideoShowsByCategoryNetManager.h"
 //#import "VategoryViewModel.h"
 //#import "VideoShowsViewModel.h"
-//#import "VideosByUserNetModel.h"
+#import "VideosByUserNetModel.h"
 
 @interface AppDelegate ()
 
@@ -47,6 +47,9 @@
 //    NSLog(@"%@,%@",path,userInfo);
 //    NSLog(@"%@",path);
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
     self.window.rootViewController = self.sideMenu;
     [self configGlobalUIStyle]; //配置全局UI样式
     return YES;
@@ -56,7 +59,8 @@
     /** 导航栏不透明 */
     [[UINavigationBar appearance] setTranslucent:NO];
     /** 设置导航栏背景图 */
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor yellowColor] cornerRadius:1]forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor blackColor] cornerRadius:1]forBarMetrics:UIBarMetricsDefault];
+    
     
     
     /** 配置导航栏题目的样式 */
@@ -78,7 +82,7 @@
         _sideMenu=[[RESideMenu alloc]initWithContentViewController:[VideoShowsViewController standardNavi] leftMenuViewController:[LeftViewController new] rightMenuViewController:nil];
 
 //        _sideMenu.backgroundImage =[UIImage imageNamed:@""];
-        _sideMenu.backgroundImage = [UIImage imageWithColor:[UIColor purpleColor] cornerRadius:1];
+        _sideMenu.backgroundImage = [UIImage imageWithColor:[UIColor blackColor] cornerRadius:1];
         
         //可以让出现菜单时不显示状态栏
         _sideMenu.menuPrefersStatusBarHidden = NO;

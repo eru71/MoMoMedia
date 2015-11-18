@@ -8,6 +8,11 @@
 
 #import "VideosByUserCollectionViewCell.h"
 
+@interface VideosByUserCollectionViewCell()
+
+
+@end
+
 @implementation VideosByUserCollectionViewCell
 
 - (UILabel *)title {

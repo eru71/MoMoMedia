@@ -10,16 +10,6 @@
 #import "GenreModel.h"
 @interface VideoShowsByCategoryNetManager : BaseNetManager
 
-typedef NS_ENUM(NSUInteger, VideoAnimeShowsType) {
-    VideoAnimeShowsTypeAll,
-    VideoAnimeShowsTypeReasoning,
-    VideoAnimeShowsTypeCollege,
-    VideoAnimeShowsTypeFighting,
-    VideoAnimeShowsTypeEducation,
-};
-
-//+ (id)getAnimeWithType:(VideoAnimeShowsType)type Page:(NSInteger)page kCompletionHandle;
-
 + (id)getAnimeWithPage:(NSInteger)page kCompletionHandle;
 
 + (id)getAnimeWithMainType:(NSString *)type Page:(NSInteger)page kCompletionHandle;

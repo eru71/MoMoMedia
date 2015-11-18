@@ -41,6 +41,7 @@
     // Do any additional setup after loading the view.
 //    self.title = @"Anime";
     [self.collectionView reloadData];
+//    self.view.backgroundColor = kRGBColor(200, 150, 150);
     [self.collectionView.mj_header beginRefreshing];
     [Factory addMenuItemToVC:self];
 }
@@ -57,8 +58,12 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ShowsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
+    cell.layer.cornerRadius = 5;
+//    cell.backgroundColor = [UIColor colorWithRed:199/255 green:255/255 blue:255/255 alpha:1];
+//    cell.backgroundColor = [UIColor lightGrayColor];
     cell.nameLb.text = [_vsVM nameForRow:indexPath.row];
     [cell.iconView.imageView setImageWithURL:[self.vsVM iconForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+    cell.iconView.layer.cornerRadius = 5;
     cell.lastupdateLb.text = [self.vsVM lastupdateForRow:indexPath.row];
     cell.episodeUpdatedLb.text = [self.vsVM episodeUpdatedForRow:indexPath.row];
     [cell.playingBtn bk_addEventHandler:^(id sender) {

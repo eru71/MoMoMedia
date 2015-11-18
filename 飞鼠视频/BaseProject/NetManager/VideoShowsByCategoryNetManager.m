@@ -18,25 +18,27 @@
 #define kArea @"area": @"日本"
 #define kCategoryAnime @"category": @"动漫"
 
-#define kOrderby @"orderby": @"lastupdate"
+#define kOrderby @"orderby": @"lastupdate" //lastupdate published
 #define kCount @"count": @"2000"
+#define kPeriod @"period": @"today"
 #define kSetGenre(genre,dic) [dic setObject:[NSString stringWithFormat:@"%@",genre] forKey:@"genre"];
 #define kSetPage(page,dic) [dic setObject:[NSString stringWithFormat:@"%ld",page] forKey:@"page"];
 #define kSetCategory(type,dic) [dic setObject:type forKey:@"category"];
 #define kSetArea(area,dic) [dic setObject:area forKey:@"area"];
-
+#define kSetPeriod(dic) [dic setObject:@"today" forKey:@"period"];
 @implementation VideoShowsByCategoryNetManager
-
-
 
 +(id)getAnimeWithMainType:(NSString *)type Page:(NSInteger)page completionHandle:(void (^)(id, NSError *))completionHandle{
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kClient_id,kOrderby,kCount}];
     kSetPage(page, params)
-    kSetCategory(type, params)
     if ([type isEqualToString:@"动漫"]) {
         kSetArea(@"日本", params)
     }
-    return [self GET:ShowsURL parameters:params completionHandler:^(id responseObj, NSError *error) {
+    kSetCategory(type, params)
+    
+    NSString *path = [self percentPathWithPath:ShowsURL params:params];
+    
+    return [self GET:path parameters:nil completionHandler:^(id responseObj, NSError *error) {
         completionHandle([VideoCategoryModel mj_objectWithKeyValues:responseObj],error);
     }];
 }

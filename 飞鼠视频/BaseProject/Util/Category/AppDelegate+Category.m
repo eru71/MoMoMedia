@@ -38,7 +38,7 @@
     [MobClick startWithAppkey:@"56496274e0f55ae4d6001803"];//飞鼠视频 友盟 appKey
     //    友盟统计 默认情况下会关掉xcode默认的crash提示
     [MobClick setLogEnabled:YES];
-
+    
 }
 
 
