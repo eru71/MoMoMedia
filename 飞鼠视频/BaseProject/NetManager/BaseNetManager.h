@@ -10,7 +10,7 @@
 
 #define kCompletionHandle completionHandle:(void(^)(id model, NSError *error))completionHandle
 #define kClient_id @"client_id": @"3f00be3594932727"
-
+#define kSetPage(page,dic) [dic setObject:[NSString stringWithFormat:@"%ld",page] forKey:@"page"];
 
 @interface BaseNetManager : NSObject
 

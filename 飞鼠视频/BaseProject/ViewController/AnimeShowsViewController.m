@@ -12,6 +12,7 @@
 #import "ShowsViewController.h"
 #import <AVKit/AVKit.h>
 
+
 @interface AnimeShowsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) UICollectionView *collectionView;
@@ -79,6 +80,7 @@
 #pragma mark - UICollectionViewDataDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     ShowsViewController *svc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM linkForRow:indexPath.row]] webTitle:[self.vsVM nameForRow:indexPath.row]];
+    
     [self.navigationController pushViewController:svc animated:YES];
 }
 

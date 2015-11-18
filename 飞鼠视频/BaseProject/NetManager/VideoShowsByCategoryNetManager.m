@@ -22,7 +22,7 @@
 #define kCount @"count": @"2000"
 #define kPeriod @"period": @"today"
 #define kSetGenre(genre,dic) [dic setObject:[NSString stringWithFormat:@"%@",genre] forKey:@"genre"];
-#define kSetPage(page,dic) [dic setObject:[NSString stringWithFormat:@"%ld",page] forKey:@"page"];
+
 #define kSetCategory(type,dic) [dic setObject:type forKey:@"category"];
 #define kSetArea(area,dic) [dic setObject:area forKey:@"area"];
 #define kSetPeriod(dic) [dic setObject:@"today" forKey:@"period"];

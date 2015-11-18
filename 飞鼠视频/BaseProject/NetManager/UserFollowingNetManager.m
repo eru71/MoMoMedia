@@ -10,7 +10,7 @@
 #import "UserFollowingModel.h"
 #define FollowURL @"https://openapi.youku.com/v2/users/friendship/followings.json"
 #define kSetUserName(name,dic) [dic setObject:name forKey:@"user_name"];
-#define kSetPage(page,dic) [dic setObject:[NSString stringWithFormat:@"%ld",page] forKey:@"page"];
+
 
 @implementation UserFollowingNetManager
 

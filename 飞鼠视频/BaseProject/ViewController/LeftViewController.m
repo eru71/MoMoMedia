@@ -31,7 +31,7 @@
     if(_headerView == nil) {
         _headerView = [[UIView alloc] init];
         [self.view addSubview:_headerView];
-        _headerView.backgroundColor = [UIColor greenSeaColor];
+//        _headerView.backgroundColor = [UIColor greenSeaColor];
         [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(kWindowW*1/4-20);
 //            make.centerY.mas_equalTo(0);
@@ -52,7 +52,7 @@
             make.centerY.mas_equalTo(0);
             make.left.mas_equalTo(0);
         }];
-        _viewFortable.backgroundColor = [UIColor lightGrayColor];
+//        _viewFortable.backgroundColor = [UIColor lightGrayColor];
     }
     return _viewFortable;
 }
@@ -61,6 +61,9 @@
     if(_nameLb == nil) {
         _nameLb = [[UILabel alloc] init];
         [self.headerView addSubview:_nameLb];
+        _nameLb.textColor = [UIColor whiteColor];
+        _nameLb.font = [UIFont systemFontOfSize:20];
+        _nameLb.textAlignment = NSTextAlignmentCenter;
         [_nameLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(0);
             make.height.mas_equalTo(20);
@@ -72,6 +75,12 @@
 - (TRImageView *)iconView {
     if(_iconView == nil) {
         _iconView = [[TRImageView alloc] init];
+        [self.headerView addSubview:_iconView];
+        
+        [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(self.nameLb.mas_top).mas_equalTo(0);
+        }];
         
     }
     return _iconView;
@@ -132,7 +141,11 @@ kRemoveCellSeparator
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.headerView.backgroundColor = [UIColor blueColor];
+//    self.headerView.backgroundColor = [UIColor blueColor];
+    self.nameLb.text = @"七夕";
+//    [self.iconView.imageView setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"UMS_sms_on"]];
+//    [self.iconView.imageView setImage:[UIImage imageNamed:@"UMS_sms_on"]];
+    
     [self.tableView reloadData];
 }
 

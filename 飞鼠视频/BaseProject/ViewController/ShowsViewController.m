@@ -7,17 +7,25 @@
 //
 
 #import "ShowsViewController.h"
+#import "DLPanableWebView.h"
+
+#define IS_IPHONE_6_PLUS [UIScreen mainScreen].scale == 3
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface ShowsViewController ()<UIWebViewDelegate>
 
-@property(nonatomic,strong) UIWebView *webView;
+@property(nonatomic,strong) DLPanableWebView *webView;
 
 @end
-@implementation ShowsViewController
+@implementation ShowsViewController{
+    id navPanTarget_;
+    SEL navPanAction_;
+}
 
-- (UIWebView *)webView{
+
+- (DLPanableWebView *)webView{
     if (!_webView) {
-        _webView = [UIWebView new];
+        _webView = [DLPanableWebView new];
         _webView.delegate = self;
         [self.view addSubview:_webView];
         [_webView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -28,9 +36,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [Factory addBackItemToVC:self];
-
+    // 获取系统默认手势Handler并保存
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        NSMutableArray *gestureTargets = [self.navigationController.interactivePopGestureRecognizer valueForKey:@"_targets"];
+        id gestureTarget = [gestureTargets firstObject];
+        navPanTarget_ = [gestureTarget valueForKey:@"_target"];
+        navPanAction_ = NSSelectorFromString(@"handleNavigationTransition:");
+    }
     [self.webView loadRequest:_request];
 }
 - (id)initWithRequest:(NSURLRequest *)request webTitle:(NSString *)title{
@@ -39,16 +52,20 @@
         self.title = title;
         //推出来 不显示下方栏
 //        self.hidesBottomBarWhenPushed = YES;
+        
     }
     return self;
 }
-#pragma mark -
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    if (navigationType != 5) {
-        ShowsViewController *detailVC=[[ShowsViewController alloc] initWithRequest:request webTitle:self.title];
-        [self.navigationController pushViewController:detailVC animated:YES];
-        return NO;
+
+#pragma mark - DLPanableWebView
+- (void)DLPanableWebView:(DLPanableWebView *)webView panPopGesture:(UIPanGestureRecognizer *)pan{
+    if (navPanTarget_ && [navPanTarget_ respondsToSelector:navPanAction_]) {
+        [navPanTarget_ performSelector:navPanAction_ withObject:pan];
     }
+}
+
+#pragma mark - WebViewDelegate
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     return YES;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView{

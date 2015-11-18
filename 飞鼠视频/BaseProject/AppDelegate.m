@@ -13,7 +13,8 @@
 //#import "VideoShowsByCategoryNetManager.h"
 //#import "VategoryViewModel.h"
 //#import "VideoShowsViewModel.h"
-#import "VideosByUserNetModel.h"
+//#import "VideosByUserNetModel.h"
+//#import "SearchByKeywordNetModel.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +26,7 @@
     // Override point for customization after application launch.
     [self initializeWithApplication:application];
 
+    /** 测试用代码 */
 //    [VideoShowsByCategoryNetManager getAnimeWithPage:1 completionHandle:^(id model, NSError *error) {
 //        NSLog(@"....");
 //    }];
@@ -46,6 +48,10 @@
 //    [userInfo writeToFile:user_data atomically:YES];
 //    NSLog(@"%@,%@",path,userInfo);
 //    NSLog(@"%@",path);
+    
+//    [SearchByKeywordNetModel getSearchByKeyword:@"黑色沙漠" page:1 completionHandle:^(id model, NSError *error) {
+//        NSLog(@"...");
+//    }];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
