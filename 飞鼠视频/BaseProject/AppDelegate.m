@@ -11,6 +11,7 @@
 #import "LeftViewController.h"
 #import "MZGuidePages.h"
 #import "VideoShowsViewController.h"
+#import "VideoShowNetModel.h"
 //#import "VideoShowsByCategoryNetManager.h"
 //#import "VategoryViewModel.h"
 //#import "VideoShowsViewModel.h"
@@ -54,6 +55,10 @@
     //        NSLog(@"...");
     //    }];
     
+//    [VideoShowNetModel getVideoShowWithID:@"XNDY5Njc0MTA4" completionHandle:^(id model, NSError *error) {
+//        NSLog(@"....");
+//    }];
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     NSDictionary *infoDic=[[NSBundle mainBundle] infoDictionary];
@@ -89,7 +94,8 @@
 - (void)guidePages
 {
     //数据源
-    NSArray *imageArray = @[ @"1.jpg", @"2.jpg", @"3.jpg", @"4.jpg" ];
+    NSArray *imageArray = @[
+                            @"1.jpg", @"2.jpg", @"3.jpg", @"4.jpg" ];
     
     //  初始化方法1
     MZGuidePages *mzgpc = [[MZGuidePages alloc] init];

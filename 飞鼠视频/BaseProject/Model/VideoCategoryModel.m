@@ -15,6 +15,10 @@
     return @{@"shows" : [VideoCategoryShowsModel class]};
 }
 
++ (NSDictionary *)replacedKeyFromPropertyName{
+    return @{@"qid": @"id"};
+}
+
 @end
 
 

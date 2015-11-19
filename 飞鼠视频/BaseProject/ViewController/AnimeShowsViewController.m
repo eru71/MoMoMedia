@@ -11,12 +11,13 @@
 #import "VideoShowsViewModel.h"
 #import "ShowsViewController.h"
 #import <AVKit/AVKit.h>
-
+#import "VideoShowViewModel.h"
 
 @interface AnimeShowsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) VideoShowsViewModel *vsVM;
+
 
 @end
 
@@ -67,21 +68,31 @@
     cell.iconView.layer.cornerRadius = 5;
     cell.lastupdateLb.text = [self.vsVM lastupdateForRow:indexPath.row];
     cell.episodeUpdatedLb.text = [self.vsVM episodeUpdatedForRow:indexPath.row];
-    [cell.playingBtn bk_addEventHandler:^(id sender) {
-        
-        ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:cell.nameLb.text];
-        [self.navigationController pushViewController:lastVideoVC animated:YES];
-//        [self presentViewController:lastVideoVC animated:YES completion:nil];
-        
-    } forControlEvents:UIControlEventTouchUpInside];
+//    [cell.playingBtn bk_addEventHandler:^(id sender) {
+//        
+////        ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:cell.nameLb.text];
+//
+////        [self.navigationController pushViewController:lastVideoVC animated:YES];
+//        [self showProgress];
+//        VideoShowViewModel *videoVM = [[VideoShowViewModel alloc]initWithVideoID:[self.vsVM videoIDForRow:indexPath.row]];
+//        [videoVM getDataFromNetCompleteHandle:^(NSError *error) {
+//            DDLogVerbose(@"%@",videoVM.vsM.player);
+//        }];
+//        ShowsViewController *vc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoVM.vsM.player]] webTitle:cell.nameLb.text];
+//        [self.navigationController pushViewController:vc animated:YES];
+//        
+//    } forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
 #pragma mark - UICollectionViewDataDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    ShowsViewController *svc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM linkForRow:indexPath.row]] webTitle:[self.vsVM nameForRow:indexPath.row]];
+//    ShowsViewController *svc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM linkForRow:indexPath.row]] webTitle:[self.vsVM nameForRow:indexPath.row]];
+//    
+//    [self.navigationController pushViewController:svc animated:YES];
+    ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:[self.vsVM nameForRow:indexPath.row]];
     
-    [self.navigationController pushViewController:svc animated:YES];
+    [self.navigationController pushViewController:lastVideoVC animated:YES];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -155,6 +166,8 @@
     }
     return _collectionView;
 }
+
+
 
 
 @end

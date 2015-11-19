@@ -14,6 +14,11 @@
 + (NSDictionary *)objectClassInArray{
     return @{@"data" : [GenreDataModel class]};
 }
+
++ (NSString *)mj_replacedKeyFromPropertyName121:(NSString *)propertyName{
+    return [propertyName mj_underlineFromCamel];
+}
+
 @end
 
 @implementation GenreDataModel

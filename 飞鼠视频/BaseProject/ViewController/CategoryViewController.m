@@ -31,8 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //    self.title = @"Anime";
+
     [self.collectionView reloadData];
     [self.collectionView.mj_header beginRefreshing];
 }

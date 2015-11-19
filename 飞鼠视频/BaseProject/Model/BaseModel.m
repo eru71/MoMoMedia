@@ -16,7 +16,14 @@ MJCodingImplementation
     return @{@"typeName": @"typename", @"ID": @"id", @"desc": @"description"};
 }
 
-
++ (NSString *)mj_replacedKeyFromPropertyName121:(NSString *)propertyName{
+    
+    if ([propertyName isEqualToString:@"bigThumbnail"]) {
+        return propertyName;
+    }
+    
+    return [propertyName mj_underlineFromCamel];
+}
 
 @end
 

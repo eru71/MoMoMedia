@@ -7,25 +7,17 @@
 //
 
 #import "ShowsViewController.h"
-#import "DLPanableWebView.h"
-
-#define IS_IPHONE_6_PLUS [UIScreen mainScreen].scale == 3
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface ShowsViewController ()<UIWebViewDelegate>
 
-@property(nonatomic,strong) DLPanableWebView *webView;
+@property(nonatomic,strong) UIWebView *webView;
 
 @end
-@implementation ShowsViewController{
-    id navPanTarget_;
-    SEL navPanAction_;
-}
+@implementation ShowsViewController
 
-
-- (DLPanableWebView *)webView{
+- (UIWebView *)webView{
     if (!_webView) {
-        _webView = [DLPanableWebView new];
+        _webView = [UIWebView new];
         _webView.delegate = self;
         [self.view addSubview:_webView];
         [_webView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -37,14 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Factory addBackItemToVC:self];
-    // 获取系统默认手势Handler并保存
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        NSMutableArray *gestureTargets = [self.navigationController.interactivePopGestureRecognizer valueForKey:@"_targets"];
-        id gestureTarget = [gestureTargets firstObject];
-        navPanTarget_ = [gestureTarget valueForKey:@"_target"];
-        navPanAction_ = NSSelectorFromString(@"handleNavigationTransition:");
-    }
-    [self.webView loadRequest:_request];
+
+    [self.webView loadRequest:self.request];
+
 }
 - (id)initWithRequest:(NSURLRequest *)request webTitle:(NSString *)title{
     if (self=[super init]) {
@@ -54,15 +41,10 @@
 //        self.hidesBottomBarWhenPushed = YES;
         
     }
+    
     return self;
 }
 
-#pragma mark - DLPanableWebView
-- (void)DLPanableWebView:(DLPanableWebView *)webView panPopGesture:(UIPanGestureRecognizer *)pan{
-    if (navPanTarget_ && [navPanTarget_ respondsToSelector:navPanAction_]) {
-        [navPanTarget_ performSelector:navPanAction_ withObject:pan];
-    }
-}
 
 #pragma mark - WebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
@@ -77,6 +59,7 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
     [self hideProgress];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

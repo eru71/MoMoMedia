@@ -32,7 +32,7 @@
 
 @property (nonatomic, copy) NSString *category;
 
-@property (nonatomic, copy) NSURL *playLink;
+@property (nonatomic, copy) NSString *playLink;
 
 @property (nonatomic, copy) NSURL *lastPlayLink;
 
@@ -42,7 +42,7 @@
 
 @property (nonatomic, assign) NSInteger paid;
 
-@property (nonatomic, copy) NSString *ID;//id
+@property (nonatomic, copy) NSString *qid;//id
 
 @property (nonatomic, copy) NSURL *poster;
 
