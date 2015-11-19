@@ -85,6 +85,7 @@
 		855721711BF70189000B664A /* VideoShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 855721701BF70189000B664A /* VideoShowsViewController.m */; };
 		855721751BF7081A000B664A /* VideoShowsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 855721741BF7081A000B664A /* VideoShowsViewModel.m */; };
 		855721781BF72A00000B664A /* AnimeShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 855721771BF72A00000B664A /* AnimeShowsViewController.m */; };
+		8575D7001BFD60FA00B359B1 /* MZGuidePages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D6FF1BFD60FA00B359B1 /* MZGuidePages.m */; };
 		859F9F661BF218A60062922D /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F651BF218A60062922D /* LeftViewController.m */; };
 		859F9F6C1BF21C670062922D /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F6B1BF21C670062922D /* Factory.m */; };
 		85B3F0111BFB5D7C00522B23 /* VideosByUserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B3F0101BFB5D7C00522B23 /* VideosByUserCollectionViewCell.m */; };
@@ -230,6 +231,8 @@
 		855721741BF7081A000B664A /* VideoShowsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShowsViewModel.m; sourceTree = "<group>"; };
 		855721761BF72A00000B664A /* AnimeShowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimeShowsViewController.h; sourceTree = "<group>"; };
 		855721771BF72A00000B664A /* AnimeShowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimeShowsViewController.m; sourceTree = "<group>"; };
+		8575D6FE1BFD60FA00B359B1 /* MZGuidePages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGuidePages.h; sourceTree = "<group>"; };
+		8575D6FF1BFD60FA00B359B1 /* MZGuidePages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZGuidePages.m; sourceTree = "<group>"; };
 		859F9F641BF218A60062922D /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		859F9F651BF218A60062922D /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		859F9F6A1BF21C670062922D /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
@@ -612,6 +615,8 @@
 		3886C0B41BD74A4A0014E661 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				8575D6FE1BFD60FA00B359B1 /* MZGuidePages.h */,
+				8575D6FF1BFD60FA00B359B1 /* MZGuidePages.m */,
 				00D9B2581BFCDF2A00584371 /* DLPanableWebView */,
 				3885C8EF1BE8E96A009441EA /* PSCollectionView-master */,
 				3885C89E1BE8E8FB009441EA /* umeng_ios_social_sdk_4.2-2.5_arm64_custom */,
@@ -915,6 +920,7 @@
 				855721711BF70189000B664A /* VideoShowsViewController.m in Sources */,
 				3804CE521BD758F10046C8C8 /* NSObject+Common.m in Sources */,
 				0063DC8A1BF89C3500B66A98 /* VategoryViewModel.m in Sources */,
+				8575D7001BFD60FA00B359B1 /* MZGuidePages.m in Sources */,
 				0070B99E1BF86FB000EA01CC /* ShowsViewController.m in Sources */,
 				00D9B2681BFCEB3100584371 /* SearchByKeywordViewModel.m in Sources */,
 			);
@@ -1030,6 +1036,7 @@
 			baseConfigurationReference = 4329DABFE5AD654FE71597C9 /* Pods-BaseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1060,6 +1067,7 @@
 			baseConfigurationReference = DD4F0750B5DAAA87BA236B31 /* Pods-BaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Category.h"
 #import "LeftViewController.h"
+#import "MZGuidePages.h"
 #import "VideoShowsViewController.h"
 //#import "VideoShowsByCategoryNetManager.h"
 //#import "VategoryViewModel.h"
@@ -25,41 +26,97 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initializeWithApplication:application];
-
+    
     /** 测试用代码 */
-//    [VideoShowsByCategoryNetManager getAnimeWithPage:1 completionHandle:^(id model, NSError *error) {
-//        NSLog(@"....");
-//    }];
-
-//    [VideoShowsByCategoryNetManager getAnimeWithPage:1 completionHandle:^(id model, NSError *error) {
-//        NSLog(@"...");
-//    }];
+    //    [VideoShowsByCategoryNetManager getAnimeWithPage:1 completionHandle:^(id model, NSError *error) {
+    //        NSLog(@"....");
+    //    }];
     
-//    [VideoShowsByCategoryNetManager getCategoryCompletionHandle:^(id model, NSError *error) {
-//        NSLog(@"....");
-//    }];
+    //    [VideoShowsByCategoryNetManager getAnimeWithPage:1 completionHandle:^(id model, NSError *error) {
+    //        NSLog(@"...");
+    //    }];
     
-//    [VideosByUserNetModel getVideosByUserWithUser:@"克里斯解说" andPage:1 completionHandle:^(id model, NSError *error) {
-//        NSLog(@"..");
-//    }];
+    //    [VideoShowsByCategoryNetManager getCategoryCompletionHandle:^(id model, NSError *error) {
+    //        NSLog(@"....");
+    //    }];
     
-//    NSString *path = user_data;
-//    NSDictionary *userInfo = @{@"name":@"Colette71",@"userFollowing":@"克里斯解说;sinbasara"};
-//    [userInfo writeToFile:user_data atomically:YES];
-//    NSLog(@"%@,%@",path,userInfo);
-//    NSLog(@"%@",path);
+    //    [VideosByUserNetModel getVideosByUserWithUser:@"克里斯解说" andPage:1 completionHandle:^(id model, NSError *error) {
+    //        NSLog(@"..");
+    //    }];
     
-//    [SearchByKeywordNetModel getSearchByKeyword:@"黑色沙漠" page:1 completionHandle:^(id model, NSError *error) {
-//        NSLog(@"...");
-//    }];
+    //    NSString *path = user_data;
+    //    NSDictionary *userInfo = @{@"name":@"Colette71",@"userFollowing":@"克里斯解说;sinbasara"};
+    //    [userInfo writeToFile:user_data atomically:YES];
+    //    NSLog(@"%@,%@",path,userInfo);
+    //    NSLog(@"%@",path);
+    
+    //    [SearchByKeywordNetModel getSearchByKeyword:@"黑色沙漠" page:1 completionHandle:^(id model, NSError *error) {
+    //        NSLog(@"...");
+    //    }];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    
+    //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    NSDictionary *infoDic=[[NSBundle mainBundle] infoDictionary];
+    /*
+      版本号:
+      version:正式发布版本号，用户只能看到version
+      build:测试版本号，是对于程序员来说的
+      */
+    //    NSLog(@"infoDic %@", infoDic);
     self.window.rootViewController = self.sideMenu;
     [self configGlobalUIStyle]; //配置全局UI样式
+    [self.window makeKeyAndVisible];
+    
+    
+    NSString *key =@"CFBundleShortVersionString";
+    NSString *currentVersion=infoDic[key];
+    //已运行过的版本号需要持久化处理，通常存储在userDefault中
+    NSString *runVersion=[[NSUserDefaults standardUserDefaults] stringForKey:key];
+    if (runVersion==nil || ![runVersion isEqualToString:currentVersion] ) {
+        //没运行过 或者 版本号不一致，则显示欢迎页
+        //显示欢迎页,window根视图设置为欢迎控制器对象
+        //保存新的版本号,防止下次运行再显示欢迎页
+        [self guidePages];
+        [[NSUserDefaults standardUserDefaults] setValue:currentVersion forKey:key];
+    }else{
+    //@"显示主页面,window根视图设置为主页面控制器对象
+    }
+    
+    
     return YES;
 }
+
+- (void)guidePages
+{
+    //数据源
+    NSArray *imageArray = @[ @"1.jpg", @"2.jpg", @"3.jpg", @"4.jpg" ];
+    
+    //  初始化方法1
+    MZGuidePages *mzgpc = [[MZGuidePages alloc] init];
+    mzgpc.imageDatas = imageArray;
+    __weak typeof(MZGuidePages) *weakMZ = mzgpc;
+    mzgpc.buttonAction = ^{
+        [UIView animateWithDuration:2.0f
+                         animations:^{
+                             weakMZ.alpha = 0.0;
+                         }
+                         completion:^(BOOL finished) {
+                             [weakMZ removeFromSuperview];
+                         }];
+    };
+    
+    //  初始化方法2
+    //    MZGuidePagesController *mzgpc = [[MZGuidePagesController alloc]
+    //    initWithImageDatas:imageArray
+    //                                                                            completion:^{
+    //                                                                              NSLog(@"click!");
+    //
+    
+    //要在makeKeyAndVisible之后调用才有效
+    [self.window addSubview:mzgpc];
+}
+
+
 /** 配置全局UI的样式 */
 - (void)configGlobalUIStyle{
     /** 导航栏不透明 */
@@ -86,15 +143,15 @@
 - (RESideMenu *)sideMenu{
     if (!_sideMenu) {
         _sideMenu=[[RESideMenu alloc]initWithContentViewController:[VideoShowsViewController standardNavi] leftMenuViewController:[LeftViewController new] rightMenuViewController:nil];
-
-//        _sideMenu.backgroundImage =[UIImage imageNamed:@""];
+        
+        //        _sideMenu.backgroundImage =[UIImage imageNamed:@""];
         _sideMenu.backgroundImage = [UIImage imageWithColor:[UIColor blackColor] cornerRadius:1];
         
         //可以让出现菜单时不显示状态栏
         _sideMenu.menuPrefersStatusBarHidden = NO;
         //        不允许菜单栏缩小到了边缘还可以继续缩小
         _sideMenu.bouncesHorizontally = NO;
-//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     }
     return _sideMenu;
 }
