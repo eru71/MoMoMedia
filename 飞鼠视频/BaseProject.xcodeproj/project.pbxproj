@@ -99,6 +99,7 @@
 		8575D7871BFE076B00B359B1 /* CYLSearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8575D7771BFE076B00B359B1 /* CYLSearchResultViewController.xib */; };
 		8575D7881BFE076B00B359B1 /* JBKenBurnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7791BFE076B00B359B1 /* JBKenBurnsView.m */; };
 		8575D7891BFE076B00B359B1 /* UIView+General.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D77B1BFE076B00B359B1 /* UIView+General.m */; };
+		8575D7901BFE0CA900B359B1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D78F1BFE0CA900B359B1 /* SearchViewController.m */; };
 		859F9F661BF218A60062922D /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F651BF218A60062922D /* LeftViewController.m */; };
 		859F9F6C1BF21C670062922D /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F6B1BF21C670062922D /* Factory.m */; };
 		85B3F0111BFB5D7C00522B23 /* VideosByUserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B3F0101BFB5D7C00522B23 /* VideosByUserCollectionViewCell.m */; };
@@ -256,11 +257,11 @@
 		8575D70B1BFD8B4600B359B1 /* VideoShowViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShowViewModel.m; sourceTree = "<group>"; };
 		8575D7101BFD990D00B359B1 /* VideoShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShowViewController.h; sourceTree = "<group>"; };
 		8575D7111BFD990D00B359B1 /* VideoShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShowViewController.m; sourceTree = "<group>"; };
-		8575D76E1BFE076B00B359B1 /* CYLSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLSearchController.h; sourceTree = "<group>"; };
-		8575D76F1BFE076B00B359B1 /* CYLSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLSearchController.m; sourceTree = "<group>"; };
-		8575D7701BFE076B00B359B1 /* CYLSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYLSearchController.xib; sourceTree = "<group>"; };
-		8575D7711BFE076B00B359B1 /* CYLSearchMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLSearchMainViewController.h; sourceTree = "<group>"; };
-		8575D7721BFE076B00B359B1 /* CYLSearchMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLSearchMainViewController.m; sourceTree = "<group>"; };
+		8575D76E1BFE076B00B359B1 /* CYLSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYLSearchController.h; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchController.h; sourceTree = "<group>"; };
+		8575D76F1BFE076B00B359B1 /* CYLSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYLSearchController.m; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchController.m; sourceTree = "<group>"; };
+		8575D7701BFE076B00B359B1 /* CYLSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CYLSearchController.xib; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchController.xib; sourceTree = "<group>"; };
+		8575D7711BFE076B00B359B1 /* CYLSearchMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYLSearchMainViewController.h; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchMainViewController.h; sourceTree = "<group>"; };
+		8575D7721BFE076B00B359B1 /* CYLSearchMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYLSearchMainViewController.m; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchMainViewController.m; sourceTree = "<group>"; };
 		8575D7731BFE076B00B359B1 /* CYLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYLSearchBar.h; path = Class/CYLSearchBar.h; sourceTree = "<group>"; };
 		8575D7741BFE076B00B359B1 /* CYLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYLSearchBar.m; path = Class/CYLSearchBar.m; sourceTree = "<group>"; };
 		8575D7751BFE076B00B359B1 /* CYLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYLSearchResultViewController.h; path = Class/CYLSearchResultViewController.h; sourceTree = "<group>"; };
@@ -270,6 +271,8 @@
 		8575D7791BFE076B00B359B1 /* JBKenBurnsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBKenBurnsView.m; path = Class/JBKenBurnsView.m; sourceTree = "<group>"; };
 		8575D77A1BFE076B00B359B1 /* UIView+General.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+General.h"; path = "Class/UIView+General.h"; sourceTree = "<group>"; };
 		8575D77B1BFE076B00B359B1 /* UIView+General.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+General.m"; path = "Class/UIView+General.m"; sourceTree = "<group>"; };
+		8575D78E1BFE0CA900B359B1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		8575D78F1BFE0CA900B359B1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		859F9F641BF218A60062922D /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		859F9F651BF218A60062922D /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		859F9F6A1BF21C670062922D /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
@@ -389,8 +392,15 @@
 		00D9B2691BFCFC5B00584371 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				8575D76E1BFE076B00B359B1 /* CYLSearchController.h */,
+				8575D76F1BFE076B00B359B1 /* CYLSearchController.m */,
+				8575D7701BFE076B00B359B1 /* CYLSearchController.xib */,
+				8575D7711BFE076B00B359B1 /* CYLSearchMainViewController.h */,
+				8575D7721BFE076B00B359B1 /* CYLSearchMainViewController.m */,
 				8575D7011BFD7E8300B359B1 /* SearchTableViewController.h */,
 				8575D7021BFD7E8300B359B1 /* SearchTableViewController.m */,
+				8575D78E1BFE0CA900B359B1 /* SearchViewController.h */,
+				8575D78F1BFE0CA900B359B1 /* SearchViewController.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -744,7 +754,6 @@
 		8575D7671BFE076B00B359B1 /* CYLSearchViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8575D76D1BFE076B00B359B1 /* Controller */,
 				8575D7731BFE076B00B359B1 /* CYLSearchBar.h */,
 				8575D7741BFE076B00B359B1 /* CYLSearchBar.m */,
 				8575D7751BFE076B00B359B1 /* CYLSearchResultViewController.h */,
@@ -756,19 +765,6 @@
 				8575D77B1BFE076B00B359B1 /* UIView+General.m */,
 			);
 			path = CYLSearchViewController;
-			sourceTree = "<group>";
-		};
-		8575D76D1BFE076B00B359B1 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				8575D76E1BFE076B00B359B1 /* CYLSearchController.h */,
-				8575D76F1BFE076B00B359B1 /* CYLSearchController.m */,
-				8575D7701BFE076B00B359B1 /* CYLSearchController.xib */,
-				8575D7711BFE076B00B359B1 /* CYLSearchMainViewController.h */,
-				8575D7721BFE076B00B359B1 /* CYLSearchMainViewController.m */,
-			);
-			name = Controller;
-			path = Class/Controller;
 			sourceTree = "<group>";
 		};
 		85B5237F1BFAC08900149568 /* VideosByUser */ = {
@@ -1012,6 +1008,7 @@
 				0070B99E1BF86FB000EA01CC /* ShowsViewController.m in Sources */,
 				8575D7891BFE076B00B359B1 /* UIView+General.m in Sources */,
 				00D9B2681BFCEB3100584371 /* SearchByKeywordViewModel.m in Sources */,
+				8575D7901BFE0CA900B359B1 /* SearchViewController.m in Sources */,
 				8575D7031BFD7E8300B359B1 /* SearchTableViewController.m in Sources */,
 				8575D7061BFD87B400B359B1 /* VideoShowModel.m in Sources */,
 			);

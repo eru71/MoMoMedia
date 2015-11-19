@@ -150,7 +150,35 @@ kRemoveCellSeparator
 }
 
 
-
+/*
+ KenBurnsView *kenView =[[KenBurnsView alloc] initWithFrame:CGRectMake(0, 0, 768, 768)];
+ kenView.layer.borderWidth = 1;
+ kenView.layer.borderColor = [UIColor blackColor].CGColor;
+ kenView.delegate = self;
+ NSArray *myImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"image3.png"],nil];
+ [kenView animateWithImages:myImages
+ transitionDuration:15
+ loop:YES
+ isLandscape:YES];
+ //
+ //    //work in application:didFinishLaunchingWithOptions
+ if([UINavigationBar conformsToProtocol:@protocol(UIAppearanceContainer)]) {
+ [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+ [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:18], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+ [[UINavigationBar appearance] setBarTintColor:
+ [UIColor colorWithRed:22/255.0 green:59/255.0 blue:188/255.0 alpha:1]
+ ] ;
+ [[UINavigationBar appearance] setTranslucent:NO];
+ }
+ //later than iOS 7
+ self.window.tintColor = [UIColor whiteColor];
+ self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+ //    [self.window addSubview:kenView];
+ 
+ CYLSearchMainViewController *vc = [[CYLSearchMainViewController alloc] init];
+ 
+ self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+ */
 
 
 
