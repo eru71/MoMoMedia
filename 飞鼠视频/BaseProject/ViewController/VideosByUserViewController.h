@@ -12,8 +12,10 @@
 
 @property(nonatomic,copy) NSString *infoType;
 
-+ (UINavigationController *)standardNavi;
+@property(nonatomic,copy) NSString *keyword;
 
 - (id)initWithInfoType:(NSString *)infoType;
+
+- (id)initWithKeyword:(NSString *)keyword;
 
 @end

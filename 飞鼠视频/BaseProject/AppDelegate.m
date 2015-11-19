@@ -83,10 +83,7 @@
         //保存新的版本号,防止下次运行再显示欢迎页
         [self guidePages];
         [[NSUserDefaults standardUserDefaults] setValue:currentVersion forKey:key];
-    }else{
-    //@"显示主页面,window根视图设置为主页面控制器对象
     }
-    
     
     return YES;
 }
@@ -110,13 +107,6 @@
                              [weakMZ removeFromSuperview];
                          }];
     };
-    
-    //  初始化方法2
-    //    MZGuidePagesController *mzgpc = [[MZGuidePagesController alloc]
-    //    initWithImageDatas:imageArray
-    //                                                                            completion:^{
-    //                                                                              NSLog(@"click!");
-    //
     
     //要在makeKeyAndVisible之后调用才有效
     [self.window addSubview:mzgpc];

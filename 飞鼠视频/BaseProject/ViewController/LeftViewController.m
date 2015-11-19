@@ -11,6 +11,7 @@
 #import "VideoShowsViewController.h"
 #import "FollowingWMPageController.h"
 #import "VideosByUserViewController.h"
+#import "SearchViewController.h"
 
 @interface LeftViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -24,7 +25,7 @@
 @implementation LeftViewController
 
 - (NSArray *)itemNames{
-    return @[@"节目",@"订阅"];
+    return @[@"节目",@"订阅",@"搜索"];
 }
 
 - (UIView *)headerView {
@@ -135,6 +136,9 @@ kRemoveCellSeparator
 //            [self.sideMenuViewController setContentViewController:[VideosByUserViewController standardNavi]];
             [self.sideMenuViewController hideMenuViewController];
             break;
+        case 2:
+            [self.sideMenuViewController setContentViewController:[SearchViewController standardNavi] animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
         default:
             break;
     }
@@ -148,37 +152,6 @@ kRemoveCellSeparator
     
     [self.tableView reloadData];
 }
-
-
-/*
- KenBurnsView *kenView =[[KenBurnsView alloc] initWithFrame:CGRectMake(0, 0, 768, 768)];
- kenView.layer.borderWidth = 1;
- kenView.layer.borderColor = [UIColor blackColor].CGColor;
- kenView.delegate = self;
- NSArray *myImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"image3.png"],nil];
- [kenView animateWithImages:myImages
- transitionDuration:15
- loop:YES
- isLandscape:YES];
- //
- //    //work in application:didFinishLaunchingWithOptions
- if([UINavigationBar conformsToProtocol:@protocol(UIAppearanceContainer)]) {
- [UINavigationBar appearance].tintColor = [UIColor whiteColor];
- [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:18], NSForegroundColorAttributeName : [UIColor whiteColor]}];
- [[UINavigationBar appearance] setBarTintColor:
- [UIColor colorWithRed:22/255.0 green:59/255.0 blue:188/255.0 alpha:1]
- ] ;
- [[UINavigationBar appearance] setTranslucent:NO];
- }
- //later than iOS 7
- self.window.tintColor = [UIColor whiteColor];
- self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
- //    [self.window addSubview:kenView];
- 
- CYLSearchMainViewController *vc = [[CYLSearchMainViewController alloc] init];
- 
- self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
- */
 
 
 

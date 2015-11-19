@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0028A3EA1BFE3B7F00641BE6 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0028A3E81BFE3B7F00641BE6 /* SearchViewController.m */; };
+		0028A3EB1BFE3B7F00641BE6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0028A3E91BFE3B7F00641BE6 /* SearchViewController.xib */; };
 		0063DC8A1BF89C3500B66A98 /* VategoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0063DC891BF89C3500B66A98 /* VategoryViewModel.m */; };
 		0063DC8D1BF8A13900B66A98 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0063DC8C1BF8A13900B66A98 /* CategoryViewController.m */; };
 		0070B99B1BF86D6B00EA01CC /* ShowsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0070B99A1BF86D6B00EA01CC /* ShowsCollectionViewCell.m */; };
@@ -86,20 +88,10 @@
 		855721751BF7081A000B664A /* VideoShowsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 855721741BF7081A000B664A /* VideoShowsViewModel.m */; };
 		855721781BF72A00000B664A /* AnimeShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 855721771BF72A00000B664A /* AnimeShowsViewController.m */; };
 		8575D7001BFD60FA00B359B1 /* MZGuidePages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D6FF1BFD60FA00B359B1 /* MZGuidePages.m */; };
-		8575D7031BFD7E8300B359B1 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7021BFD7E8300B359B1 /* SearchTableViewController.m */; };
 		8575D7061BFD87B400B359B1 /* VideoShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7051BFD87B400B359B1 /* VideoShowModel.m */; };
 		8575D7091BFD89C900B359B1 /* VideoShowNetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7081BFD89C900B359B1 /* VideoShowNetModel.m */; };
 		8575D70C1BFD8B4600B359B1 /* VideoShowViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D70B1BFD8B4600B359B1 /* VideoShowViewModel.m */; };
 		8575D7121BFD990D00B359B1 /* VideoShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7111BFD990D00B359B1 /* VideoShowViewController.m */; };
-		8575D7821BFE076B00B359B1 /* CYLSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D76F1BFE076B00B359B1 /* CYLSearchController.m */; };
-		8575D7831BFE076B00B359B1 /* CYLSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8575D7701BFE076B00B359B1 /* CYLSearchController.xib */; };
-		8575D7841BFE076B00B359B1 /* CYLSearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7721BFE076B00B359B1 /* CYLSearchMainViewController.m */; };
-		8575D7851BFE076B00B359B1 /* CYLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7741BFE076B00B359B1 /* CYLSearchBar.m */; };
-		8575D7861BFE076B00B359B1 /* CYLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7761BFE076B00B359B1 /* CYLSearchResultViewController.m */; };
-		8575D7871BFE076B00B359B1 /* CYLSearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8575D7771BFE076B00B359B1 /* CYLSearchResultViewController.xib */; };
-		8575D7881BFE076B00B359B1 /* JBKenBurnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7791BFE076B00B359B1 /* JBKenBurnsView.m */; };
-		8575D7891BFE076B00B359B1 /* UIView+General.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D77B1BFE076B00B359B1 /* UIView+General.m */; };
-		8575D7901BFE0CA900B359B1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D78F1BFE0CA900B359B1 /* SearchViewController.m */; };
 		859F9F661BF218A60062922D /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F651BF218A60062922D /* LeftViewController.m */; };
 		859F9F6C1BF21C670062922D /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F6B1BF21C670062922D /* Factory.m */; };
 		85B3F0111BFB5D7C00522B23 /* VideosByUserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B3F0101BFB5D7C00522B23 /* VideosByUserCollectionViewCell.m */; };
@@ -113,6 +105,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0028A3E71BFE3B7F00641BE6 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		0028A3E81BFE3B7F00641BE6 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		0028A3E91BFE3B7F00641BE6 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		0063DC881BF89C3500B66A98 /* VategoryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VategoryViewModel.h; sourceTree = "<group>"; };
 		0063DC891BF89C3500B66A98 /* VategoryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VategoryViewModel.m; sourceTree = "<group>"; };
 		0063DC8B1BF8A13900B66A98 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
@@ -247,8 +242,6 @@
 		855721771BF72A00000B664A /* AnimeShowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimeShowsViewController.m; sourceTree = "<group>"; };
 		8575D6FE1BFD60FA00B359B1 /* MZGuidePages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGuidePages.h; sourceTree = "<group>"; };
 		8575D6FF1BFD60FA00B359B1 /* MZGuidePages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZGuidePages.m; sourceTree = "<group>"; };
-		8575D7011BFD7E8300B359B1 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
-		8575D7021BFD7E8300B359B1 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		8575D7041BFD87B400B359B1 /* VideoShowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShowModel.h; sourceTree = "<group>"; };
 		8575D7051BFD87B400B359B1 /* VideoShowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShowModel.m; sourceTree = "<group>"; };
 		8575D7071BFD89C900B359B1 /* VideoShowNetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShowNetModel.h; sourceTree = "<group>"; };
@@ -257,22 +250,6 @@
 		8575D70B1BFD8B4600B359B1 /* VideoShowViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShowViewModel.m; sourceTree = "<group>"; };
 		8575D7101BFD990D00B359B1 /* VideoShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoShowViewController.h; sourceTree = "<group>"; };
 		8575D7111BFD990D00B359B1 /* VideoShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoShowViewController.m; sourceTree = "<group>"; };
-		8575D76E1BFE076B00B359B1 /* CYLSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYLSearchController.h; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchController.h; sourceTree = "<group>"; };
-		8575D76F1BFE076B00B359B1 /* CYLSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYLSearchController.m; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchController.m; sourceTree = "<group>"; };
-		8575D7701BFE076B00B359B1 /* CYLSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CYLSearchController.xib; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchController.xib; sourceTree = "<group>"; };
-		8575D7711BFE076B00B359B1 /* CYLSearchMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYLSearchMainViewController.h; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchMainViewController.h; sourceTree = "<group>"; };
-		8575D7721BFE076B00B359B1 /* CYLSearchMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYLSearchMainViewController.m; path = ../Vendor/CYLSearchViewController/Class/Controller/CYLSearchMainViewController.m; sourceTree = "<group>"; };
-		8575D7731BFE076B00B359B1 /* CYLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYLSearchBar.h; path = Class/CYLSearchBar.h; sourceTree = "<group>"; };
-		8575D7741BFE076B00B359B1 /* CYLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYLSearchBar.m; path = Class/CYLSearchBar.m; sourceTree = "<group>"; };
-		8575D7751BFE076B00B359B1 /* CYLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYLSearchResultViewController.h; path = Class/CYLSearchResultViewController.h; sourceTree = "<group>"; };
-		8575D7761BFE076B00B359B1 /* CYLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYLSearchResultViewController.m; path = Class/CYLSearchResultViewController.m; sourceTree = "<group>"; };
-		8575D7771BFE076B00B359B1 /* CYLSearchResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CYLSearchResultViewController.xib; path = Class/CYLSearchResultViewController.xib; sourceTree = "<group>"; };
-		8575D7781BFE076B00B359B1 /* JBKenBurnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBKenBurnsView.h; path = Class/JBKenBurnsView.h; sourceTree = "<group>"; };
-		8575D7791BFE076B00B359B1 /* JBKenBurnsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBKenBurnsView.m; path = Class/JBKenBurnsView.m; sourceTree = "<group>"; };
-		8575D77A1BFE076B00B359B1 /* UIView+General.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+General.h"; path = "Class/UIView+General.h"; sourceTree = "<group>"; };
-		8575D77B1BFE076B00B359B1 /* UIView+General.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+General.m"; path = "Class/UIView+General.m"; sourceTree = "<group>"; };
-		8575D78E1BFE0CA900B359B1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		8575D78F1BFE0CA900B359B1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		859F9F641BF218A60062922D /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		859F9F651BF218A60062922D /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		859F9F6A1BF21C670062922D /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
@@ -392,15 +369,9 @@
 		00D9B2691BFCFC5B00584371 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				8575D76E1BFE076B00B359B1 /* CYLSearchController.h */,
-				8575D76F1BFE076B00B359B1 /* CYLSearchController.m */,
-				8575D7701BFE076B00B359B1 /* CYLSearchController.xib */,
-				8575D7711BFE076B00B359B1 /* CYLSearchMainViewController.h */,
-				8575D7721BFE076B00B359B1 /* CYLSearchMainViewController.m */,
-				8575D7011BFD7E8300B359B1 /* SearchTableViewController.h */,
-				8575D7021BFD7E8300B359B1 /* SearchTableViewController.m */,
-				8575D78E1BFE0CA900B359B1 /* SearchViewController.h */,
-				8575D78F1BFE0CA900B359B1 /* SearchViewController.m */,
+				0028A3E71BFE3B7F00641BE6 /* SearchViewController.h */,
+				0028A3E81BFE3B7F00641BE6 /* SearchViewController.m */,
+				0028A3E91BFE3B7F00641BE6 /* SearchViewController.xib */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -668,7 +639,6 @@
 		3886C0B41BD74A4A0014E661 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				8575D7671BFE076B00B359B1 /* CYLSearchViewController */,
 				8575D6FE1BFD60FA00B359B1 /* MZGuidePages.h */,
 				8575D6FF1BFD60FA00B359B1 /* MZGuidePages.m */,
 				00D9B2581BFCDF2A00584371 /* DLPanableWebView */,
@@ -749,22 +719,6 @@
 				8575D70B1BFD8B4600B359B1 /* VideoShowViewModel.m */,
 			);
 			name = VideoShows;
-			sourceTree = "<group>";
-		};
-		8575D7671BFE076B00B359B1 /* CYLSearchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8575D7731BFE076B00B359B1 /* CYLSearchBar.h */,
-				8575D7741BFE076B00B359B1 /* CYLSearchBar.m */,
-				8575D7751BFE076B00B359B1 /* CYLSearchResultViewController.h */,
-				8575D7761BFE076B00B359B1 /* CYLSearchResultViewController.m */,
-				8575D7771BFE076B00B359B1 /* CYLSearchResultViewController.xib */,
-				8575D7781BFE076B00B359B1 /* JBKenBurnsView.h */,
-				8575D7791BFE076B00B359B1 /* JBKenBurnsView.m */,
-				8575D77A1BFE076B00B359B1 /* UIView+General.h */,
-				8575D77B1BFE076B00B359B1 /* UIView+General.m */,
-			);
-			path = CYLSearchViewController;
 			sourceTree = "<group>";
 		};
 		85B5237F1BFAC08900149568 /* VideosByUser */ = {
@@ -885,11 +839,10 @@
 				3885C8E31BE8E8FB009441EA /* iOS-social-analytics-releasenote.html in Resources */,
 				3885C8D71BE8E8FB009441EA /* UMSCommentInputControlleriPad.xib in Resources */,
 				3885C8D91BE8E8FB009441EA /* UMShareEditViewControlleriPad.xib in Resources */,
+				0028A3EB1BFE3B7F00641BE6 /* SearchViewController.xib in Resources */,
 				3886C0AE1BD749A00014E661 /* LaunchScreen.xib in Resources */,
 				3885C8EE1BE8E8FB009441EA /* markdown.css in Resources */,
-				8575D7831BFE076B00B359B1 /* CYLSearchController.xib in Resources */,
 				3885C8E61BE8E8FB009441EA /* ios-social-sdk-comment-quick.html in Resources */,
-				8575D7871BFE076B00B359B1 /* CYLSearchResultViewController.xib in Resources */,
 				3885C8D31BE8E8FB009441EA /* UMSocialLocalizable.strings in Resources */,
 				3886C0A11BD748830014E661 /* Main.storyboard in Resources */,
 				3885C8DB1BE8E8FB009441EA /* UMSnsAccountViewController.xib in Resources */,
@@ -965,22 +918,20 @@
 				0063DC8D1BF8A13900B66A98 /* CategoryViewController.m in Sources */,
 				3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */,
 				0070B99B1BF86D6B00EA01CC /* ShowsCollectionViewCell.m in Sources */,
-				8575D7841BFE076B00B359B1 /* CYLSearchMainViewController.m in Sources */,
 				00D9B25B1BFCDF2A00584371 /* DLPanableWebView.m in Sources */,
 				85D477E61BFA1578004453D9 /* UserFollowingModel.m in Sources */,
 				3885C8F91BE8E96A009441EA /* PSCollectionView.m in Sources */,
 				3886C09B1BD748830014E661 /* AppDelegate.m in Sources */,
-				8575D7881BFE076B00B359B1 /* JBKenBurnsView.m in Sources */,
 				85D477E01BFA0C30004453D9 /* CategoryCollectionViewCell.m in Sources */,
 				8575D7091BFD89C900B359B1 /* VideoShowNetModel.m in Sources */,
 				855721751BF7081A000B664A /* VideoShowsViewModel.m in Sources */,
 				85D644F01BF1BF3C009D24C5 /* TRImageView.m in Sources */,
-				8575D7861BFE076B00B359B1 /* CYLSearchResultViewController.m in Sources */,
 				00D9B25E1BFCE67900584371 /* SearchByKeywordModel.m in Sources */,
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
 				85B523851BFAC0CC00149568 /* VideosByUserViewModel.m in Sources */,
 				85D477E31BFA0D34004453D9 /* CategoryTableViewController.m in Sources */,
 				859F9F661BF218A60062922D /* LeftViewController.m in Sources */,
+				0028A3EA1BFE3B7F00641BE6 /* SearchViewController.m in Sources */,
 				8557216A1BF6D7F6000B664A /* GenreModel.m in Sources */,
 				0088DF681BFA4CC200836B91 /* UserFollowingNetManager.m in Sources */,
 				3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */,
@@ -997,19 +948,14 @@
 				3886C0C11BD74B090014E661 /* BaseModel.m in Sources */,
 				855721781BF72A00000B664A /* AnimeShowsViewController.m in Sources */,
 				3886C0981BD748830014E661 /* main.m in Sources */,
-				8575D7851BFE076B00B359B1 /* CYLSearchBar.m in Sources */,
 				855721711BF70189000B664A /* VideoShowsViewController.m in Sources */,
 				3804CE521BD758F10046C8C8 /* NSObject+Common.m in Sources */,
 				8575D70C1BFD8B4600B359B1 /* VideoShowViewModel.m in Sources */,
-				8575D7821BFE076B00B359B1 /* CYLSearchController.m in Sources */,
 				0063DC8A1BF89C3500B66A98 /* VategoryViewModel.m in Sources */,
 				8575D7001BFD60FA00B359B1 /* MZGuidePages.m in Sources */,
 				8575D7121BFD990D00B359B1 /* VideoShowViewController.m in Sources */,
 				0070B99E1BF86FB000EA01CC /* ShowsViewController.m in Sources */,
-				8575D7891BFE076B00B359B1 /* UIView+General.m in Sources */,
 				00D9B2681BFCEB3100584371 /* SearchByKeywordViewModel.m in Sources */,
-				8575D7901BFE0CA900B359B1 /* SearchViewController.m in Sources */,
-				8575D7031BFD7E8300B359B1 /* SearchTableViewController.m in Sources */,
 				8575D7061BFD87B400B359B1 /* VideoShowModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

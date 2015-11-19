@@ -26,6 +26,6 @@
 
 - (NSString *)publishedForRow:(NSInteger)row;
 
-- (NSInteger)viewCountForRow:(NSInteger)row;
+- (NSString *)viewCountForRow:(NSInteger)row;
 
 @end

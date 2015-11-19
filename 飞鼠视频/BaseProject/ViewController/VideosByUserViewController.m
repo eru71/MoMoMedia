@@ -10,11 +10,13 @@
 #import "VideosByUserCollectionViewCell.h"
 #import "ShowsViewController.h"
 #import "VideosByUserViewModel.h"
+#import "SearchByKeywordViewModel.h"
 
 @interface VideosByUserViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) VideosByUserViewModel *vbuVM;
 
+@property (nonatomic,strong) SearchByKeywordViewModel *searchVM;
 
 @property (nonatomic,strong) UICollectionView *collectionView;
 
@@ -22,22 +24,16 @@
 
 @implementation VideosByUserViewController
 
-+(UINavigationController *)standardNavi{
-    static UINavigationController *navc = nil;
-    static VideosByUserViewController *vc = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        vc = [[VideosByUserViewController alloc]initWithInfoType:@"sinbasara"];
-        
-    });
-    navc = [[UINavigationController alloc]initWithRootViewController:vc];
-    navc.title = @"订阅";
-    return navc;
-}
-
 -(id)initWithInfoType:(NSString *)infoType{
     if (self = [super init]) {
         _infoType = infoType;
+    }
+    return self;
+}
+
+-(id)initWithKeyword:(NSString *)keyword{
+    if (self = [super init]) {
+        _keyword = keyword;
     }
     return self;
 }
@@ -47,6 +43,13 @@
         _vbuVM = [[VideosByUserViewModel alloc] initWithUserName:_infoType];
     }
     return _vbuVM;
+}
+
+- (SearchByKeywordViewModel *)searchVM{
+    if (_searchVM == nil) {
+        _searchVM = [[SearchByKeywordViewModel alloc]initWithKeyword:_keyword];
+    }
+    return _searchVM;
 }
 
 - (void)viewDidLoad {
@@ -69,19 +72,24 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     VideosByUserCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    if (self.keyword==nil) {
+        cell.title.text = [_vbuVM titileForRow:indexPath.row];
+        [cell.iconView.imageView setImageWithURL:[self.vbuVM thumbnailForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+        cell.viewCountLb.text = [_vbuVM viewCountForRow:indexPath.row];
+        cell.publishedLb.text = [self.vbuVM publishedForRow:indexPath.row];
+    }else{
+        cell.title.text = [_searchVM titleForRow:indexPath.row];
+        [cell.iconView.imageView setImageWithURL:[self.searchVM thumbnailV2:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+        cell.viewCountLb.text = [_searchVM viewCountForRow:indexPath.row];
+        cell.publishedLb.text = [_searchVM publishedForRow:indexPath.row];
+    }
     
-    cell.title.text = [_vbuVM titileForRow:indexPath.row];
-//    cell.backgroundColor = [UIColor colorWithRed:15/255 green:211/255 blue:222/255 alpha:1];
-    //    _vsVM = [[VideoShowsViewModel alloc]initWithType:[self.vVM nameForRow:indexPath.row]];
-    [cell.iconView.imageView setImageWithURL:[self.vbuVM thumbnailForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
-    
-    cell.viewCountLb.text = [_vbuVM viewCountForRow:indexPath.row];
-    cell.publishedLb.text = [self.vbuVM publishedForRow:indexPath.row];
     
     return cell;
 }
 #pragma mark - UICollectionViewDataDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [self showProgress];
     ShowsViewController *svc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vbuVM linkForRow:indexPath.row]] webTitle:[self.vbuVM titileForRow:indexPath.row]];
     [self.navigationController pushViewController:svc animated:YES];
 }
@@ -101,8 +109,11 @@
 //}
 /** 每格cell的 宽高 */
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = kWindowW - 2 * 10;
-    CGFloat height = width/2 + 30;
+//    CGFloat width = kWindowW - 2 * 10;
+//    CGFloat height = width/2 + 30;
+    CGFloat width = (kWindowW - 3 * 20) / 2;
+    CGFloat height = width / 2 + 3 * 20;
+    
     return CGSizeMake(width, height);
 }
 

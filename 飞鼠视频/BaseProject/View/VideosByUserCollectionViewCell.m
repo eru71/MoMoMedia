@@ -18,7 +18,7 @@
 - (UILabel *)title {
     if(_title == nil) {
         _title = [[UILabel alloc] init];
-        _title.font = [UIFont systemFontOfSize:15];
+        _title.font = [UIFont systemFontOfSize:14];
         _title.textAlignment = NSTextAlignmentLeft;
         _title.numberOfLines = 2;
         [self.contentView addSubview:_title];
@@ -27,8 +27,9 @@
 //            make.bottom.mas_equalTo(self.episodeUpdatedLb.mas_top).mas_equalTo(0);
             make.bottom.mas_equalTo(0);
             make.top.mas_equalTo(self.iconView.mas_bottom).mas_equalTo(0);
-            make.height.mas_lessThanOrEqualTo(30);
-            make.height.mas_greaterThanOrEqualTo(20);
+//            make.height.mas_lessThanOrEqualTo(20);
+//            make.height.mas_greaterThanOrEqualTo(40);
+            make.height.mas_equalTo(40);
         }];
     }
     return _title;
@@ -63,10 +64,11 @@
     if(_publishedLb == nil) {
         _publishedLb = [[UILabel alloc] init];
         [self.lightGrayView addSubview:_publishedLb];
-        _publishedLb.font = [UIFont systemFontOfSize:13];
+        _publishedLb.font = [UIFont systemFontOfSize:12];
         _publishedLb.textColor = [UIColor whiteColor];
         [_publishedLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.bottom.top.mas_equalTo(0);
+            make.bottom.top.mas_equalTo(0);
+            make.left.mas_equalTo(10);
             make.right.mas_equalTo(100);
         }];
     }
@@ -77,12 +79,12 @@
     if (_viewCountLb == nil) {
         _viewCountLb = [[UILabel alloc]init];
         _viewCountLb.textColor = [UIColor whiteColor];
-        _viewCountLb.font = [UIFont systemFontOfSize:13];
+        _viewCountLb.font = [UIFont systemFontOfSize:12];
         [self.lightGrayView addSubview:_viewCountLb];
         [_viewCountLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(5);
+            make.right.mas_equalTo(-5);
             make.top.bottom.mas_equalTo(0);
-            make.width.mas_equalTo(100);
+            make.width.mas_equalTo(80);
         }];
     }
     return _viewCountLb;

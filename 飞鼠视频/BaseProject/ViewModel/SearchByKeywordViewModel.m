@@ -72,8 +72,8 @@
     return [self modelForRow:row].published;
 }
 
-- (NSInteger)viewCountForRow:(NSInteger)row{
-    return [self modelForRow:row].viewCount;
+- (NSString *)viewCountForRow:(NSInteger)row{
+    return  [NSString stringWithFormat:@"%ld",(long)[self modelForRow:row].viewCount];
 }
 
 @end
