@@ -69,7 +69,8 @@
 }
 
 - (NSString *)publishedForRow:(NSInteger)row{
-    return [self modelForRow:row].published;
+    NSString *time = [self returnUploadTime:[self modelForRow:row].published];
+    return time;
 }
 
 - (NSString *)viewCountForRow:(NSInteger)row{

@@ -11,6 +11,7 @@
 @interface ShowsViewController ()<UIWebViewDelegate>
 
 @property(nonatomic,strong) UIWebView *webView;
+@property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
 
 @end
 @implementation ShowsViewController
@@ -29,8 +30,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Factory addBackItemToVC:self];
-    
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator.frame = CGRectMake(kWindowW/2-20, kWindowH/2-20, 50, 50);
+    [activityIndicator setCenter:self.view.center];
+    [self.view addSubview:activityIndicator];
+    self.activityIndicator = activityIndicator;
     [self.webView loadRequest:self.request];
+    
 
 }
 - (id)initWithRequest:(NSURLRequest *)request webTitle:(NSString *)title{
@@ -48,20 +54,22 @@
 
 #pragma mark - WebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    //判断是否是单击
-
+//    [self.activityIndicator startAnimating];
+    
     return YES;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView{
     [self showProgress];
+    [self.activityIndicator startAnimating];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [self hideProgress];
+    [self.activityIndicator stopAnimating];
 
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
 //    [self hideProgress];
-    [self showErrorMsg:@"网络出错"];
+//    [self showErrorMsg:@"网络出错"];
     // Black base color for background matches the native apps
 
 }
