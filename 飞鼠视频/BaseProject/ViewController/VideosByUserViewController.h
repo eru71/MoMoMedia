@@ -12,10 +12,10 @@
 
 @property(nonatomic,copy) NSString *infoType;
 
-@property(nonatomic,copy) NSString *keyword;
+
 
 - (id)initWithInfoType:(NSString *)infoType;
 
-- (id)initWithKeyword:(NSString *)keyword;
+
 
 @end

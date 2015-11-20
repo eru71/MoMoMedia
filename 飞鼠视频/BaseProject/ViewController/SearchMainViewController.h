@@ -1,5 +1,5 @@
 //
-//  SearchViewController.h
+//  SearchMainViewController.h
 //  BaseProject
 //
 //  Created by tarena on 15/11/20.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UITabBarController
-+ (SearchViewController *)standardNavi;
+@interface SearchMainViewController : UIViewController
+
 @end

@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Factory addBackItemToVC:self];
-
+    
     [self.webView loadRequest:self.request];
 
 }
@@ -48,6 +48,8 @@
 
 #pragma mark - WebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    //判断是否是单击
+
     return YES;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -55,9 +57,13 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [self hideProgress];
+
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
-    [self hideProgress];
+//    [self hideProgress];
+    [self showErrorMsg:@"网络出错"];
+    // Black base color for background matches the native apps
+
 }
 
 

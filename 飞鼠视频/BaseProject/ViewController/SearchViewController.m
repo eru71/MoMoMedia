@@ -2,14 +2,15 @@
 //  SearchViewController.m
 //  BaseProject
 //
-//  Created by Colette71 on 15/11/20.
+//  Created by tarena on 15/11/20.
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
 #import "SearchViewController.h"
-#import "VideosByUserViewController.h"
-@interface SearchViewController ()<UISearchBarDelegate>
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+#import "SearchMainViewController.h"
+@interface SearchViewController ()
+
+@property (nonatomic,strong) UITextField *textField;
 
 @end
 
@@ -26,38 +27,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [Factory addMenuItemToVC:self];
+    // Do any additional setup after loading the view.
+//    self.view.backgroundColor = [UIColor whiteColor];
+    self.tabBar.translucent = NO;
+    self.tabBar.backgroundColor = [UIColor blackColor];
+    SearchMainViewController *cvc = [SearchMainViewController new];
+    UINavigationController *ncvc = [[UINavigationController alloc]initWithRootViewController:cvc];
+    cvc.title = @"搜索";
+    ncvc.title = @"搜索";
     
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
-{
-    if (searchText!=nil && searchText.length>0) {
-//        NSLog(@"searchText:%@",searchText);
-    }
-    else
-    {
-//        [self showErrorMsg:@"没有输入内容"];
-    }
-    
-}
-
--(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    if (searchBar.text==nil) {
-        [self showErrorMsg:@"没有输入内容"];
-    }else{
-        VideosByUserViewController *vc = [[VideosByUserViewController alloc]initWithKeyword:searchBar.text];
-        [self.navigationController presentViewController:vc animated:YES completion:nil];
-        NSLog(@"%@",searchBar.text);
-    }
-    [_searchBar resignFirstResponder];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
-{
-    VideosByUserViewController *vc = [[VideosByUserViewController alloc]initWithKeyword:searchBar.text];
-    [_searchBar resignFirstResponder];
-    [self.navigationController presentViewController:vc animated:YES completion:nil];
+    self.viewControllers = @[ncvc];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,5 +53,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (UITextField *)textField {
+	if(_textField == nil) {
+		_textField = [[UITextField alloc] init];
+        [self.view addSubview:_textField];
+        [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.mas_equalTo(0);
+            make.height.mas_equalTo(40);
+            make.width.mas_equalTo(200);
+        }];
+        
+        _textField.placeholder = @"在这儿输入(^ ^)";
+//        _textField.borderStyle = style
+	}
+	return _textField;
+}
 
 @end

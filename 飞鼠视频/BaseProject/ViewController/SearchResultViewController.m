@@ -1,39 +1,38 @@
 //
-//  VideosByUserViewController.m
+//  SearchResultViewController.m
 //  BaseProject
 //
-//  Created by Colette71 on 15/11/17.
+//  Created by tarena on 15/11/20.
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
-#import "VideosByUserViewController.h"
+#import "SearchResultViewController.h"
+#import "SearchByKeywordViewModel.h"
 #import "VideosByUserCollectionViewCell.h"
 #import "ShowsViewController.h"
-#import "VideosByUserViewModel.h"
 
+@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
-@interface VideosByUserViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-
-@property (nonatomic,strong) VideosByUserViewModel *vbuVM;
+@property (nonatomic,strong) SearchByKeywordViewModel *searchVM;
 
 @property (nonatomic,strong) UICollectionView *collectionView;
 
 @end
 
-@implementation VideosByUserViewController
+@implementation SearchResultViewController
 
--(id)initWithInfoType:(NSString *)infoType{
+-(id)initWithKeyword:(NSString *)keyword{
     if (self = [super init]) {
-        _infoType = infoType;
+        _keyword = keyword;
     }
     return self;
 }
 
-- (VideosByUserViewModel *)vbuVM {
-    if(_vbuVM == nil) {
-        _vbuVM = [[VideosByUserViewModel alloc] initWithUserName:_infoType];
+- (SearchByKeywordViewModel *)searchVM{
+    if (_searchVM == nil) {
+        _searchVM = [[SearchByKeywordViewModel alloc]initWithKeyword:_keyword];
     }
-    return _vbuVM;
+    return _searchVM;
 }
 
 - (void)viewDidLoad {
@@ -42,7 +41,7 @@
     //    self.title = @"Anime";
     [self.collectionView reloadData];
     [self.collectionView.mj_header beginRefreshing];
-    [Factory addMenuItemToVC:self];
+    [Factory addBackItemToVC:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,21 +51,23 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.vbuVM.rowNumber;
+    return self.searchVM.rowNumber;
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     VideosByUserCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.title.text = [_vbuVM titileForRow:indexPath.row];
-    [cell.iconView.imageView setImageWithURL:[self.vbuVM thumbnailForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
-    cell.viewCountLb.text = [_vbuVM viewCountForRow:indexPath.row];
-    cell.publishedLb.text = [self.vbuVM publishedForRow:indexPath.row];
+    cell.title.text = [_searchVM titleForRow:indexPath.row];
+    [cell.iconView.imageView setImageWithURL:[self.searchVM thumbnailV2:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
+    cell.viewCountLb.text = [_searchVM viewCountForRow:indexPath.row];
+    cell.publishedLb.text = [_searchVM publishedForRow:indexPath.row];
+    
     return cell;
 }
 #pragma mark - UICollectionViewDataDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [self showProgress];
-    ShowsViewController *svc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vbuVM linkForRow:indexPath.row]] webTitle:[self.vbuVM titileForRow:indexPath.row]];
+    ShowsViewController *svc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.searchVM linkForRow:indexPath.row]] webTitle:[self.searchVM titleForRow:indexPath.row]];
     [self.navigationController pushViewController:svc animated:YES];
 }
 
@@ -118,7 +119,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self.vbuVM getDataFromNetCompleteHandle:^(NSError *error) {
+            [self.searchVM getDataFromNetCompleteHandle:^(NSError *error) {
                 if (error) {
                     [self showErrorMsg:error.localizedDescription];
                 }else{
@@ -128,7 +129,7 @@
             }];
         }];
         _collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [self.vbuVM getMoreDataCompletionHandle:^(NSError *error) {
+            [self.searchVM getMoreDataCompletionHandle:^(NSError *error) {
                 if (error) {
                     [self showErrorMsg:error.localizedDescription];
                     

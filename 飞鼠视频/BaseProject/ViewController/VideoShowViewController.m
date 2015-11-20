@@ -16,7 +16,11 @@
 
 @property(nonatomic,strong) UIWebView *webView;
 
+@property (nonatomic,strong) NSURL *url;
+
 @end
+
+
 @implementation VideoShowViewController
 
 -(id)initWithVideoID:(NSString *)videoID{
@@ -65,12 +69,16 @@
         }else
         {
             NSURL* url = [NSURL URLWithString:self.videoVM.vsM.player];
+            self.url = url;
             NSURLRequest *request=[NSURLRequest requestWithURL:url];
+            
+            NSLog(@"%@",request);
+            
             [_webView loadRequest:request];
         }
         
     }];
-
+    NSLog(@"url--------%@",self.url);
 }
 
 #pragma mark - UIWebViewDelegate

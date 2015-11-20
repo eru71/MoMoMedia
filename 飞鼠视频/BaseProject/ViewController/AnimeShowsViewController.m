@@ -11,7 +11,8 @@
 #import "VideoShowsViewModel.h"
 #import "ShowsViewController.h"
 #import <AVKit/AVKit.h>
-#import "VideoShowViewModel.h"
+#import "VideoShowViewController.h"
+
 
 @interface AnimeShowsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -68,20 +69,23 @@
     cell.iconView.layer.cornerRadius = 5;
     cell.lastupdateLb.text = [self.vsVM lastupdateForRow:indexPath.row];
     cell.episodeUpdatedLb.text = [self.vsVM episodeUpdatedForRow:indexPath.row];
-//    [cell.playingBtn bk_addEventHandler:^(id sender) {
-//        
-////        ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:cell.nameLb.text];
-//
-////        [self.navigationController pushViewController:lastVideoVC animated:YES];
-//        [self showProgress];
+    [cell.playingBtn bk_addEventHandler:^(id sender) {
+        
+//        ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:cell.nameLb.text];
+
+//        [self.navigationController pushViewController:lastVideoVC animated:YES];
+        [self showProgress];
 //        VideoShowViewModel *videoVM = [[VideoShowViewModel alloc]initWithVideoID:[self.vsVM videoIDForRow:indexPath.row]];
 //        [videoVM getDataFromNetCompleteHandle:^(NSError *error) {
 //            DDLogVerbose(@"%@",videoVM.vsM.player);
 //        }];
 //        ShowsViewController *vc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoVM.vsM.player]] webTitle:cell.nameLb.text];
-//        [self.navigationController pushViewController:vc animated:YES];
-//        
-//    } forControlEvents:UIControlEventTouchUpInside];
+        
+        VideoShowViewController *vc = [[VideoShowViewController alloc]initWithVideoID:[self.vsVM videoIDForRow:indexPath.row]];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }

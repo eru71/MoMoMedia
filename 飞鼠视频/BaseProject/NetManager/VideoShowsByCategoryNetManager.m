@@ -29,7 +29,7 @@
 @implementation VideoShowsByCategoryNetManager
 
 +(id)getAnimeWithMainType:(NSString *)type Page:(NSInteger)page completionHandle:(void (^)(id, NSError *))completionHandle{
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kClient_id,kOrderby,kCount}];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kClient_id,kOrderby}];//,kCount
     kSetPage(page, params)
     if ([type isEqualToString:@"动漫"]) {
         kSetArea(@"日本", params)
