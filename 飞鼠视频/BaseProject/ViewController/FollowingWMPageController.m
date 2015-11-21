@@ -19,6 +19,8 @@
 
 @property (nonatomic,strong) NSMutableArray *array;
 
+
+
 @end
 
 @implementation FollowingWMPageController
@@ -78,7 +80,7 @@
     self.title = @"订阅";
     [Factory addMenuItemToVC:self];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:user_data]) {
+    if (![fileManager fileExistsAtPath:user_data]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"您现在没有订阅的用户" message:@"请输入想要订阅的用户昵称，用“；”键添加更多" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
         alert.alertViewStyle = FUIAlertViewStylePlainTextInput;
         [alert show];
@@ -97,13 +99,7 @@
     if (self.array.count) {
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:user_data];
         NSString *userFollowtext = nil;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            //更新表视图
-            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.allNews.count-1 inSection:0];
-            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            //通知脚视图，加载完毕
-            [footerView didLoadNews];
-        });
+        
         if (dict[@"userFollowing"] == nil) {
             userFollowtext = [NSString stringWithFormat:@"%@",textf0];
         }else{
@@ -111,7 +107,13 @@
         }
         NSLog(@".................%ld",self.array.count);
         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:@{@"userFollowing":userFollowtext}];
-        [userInfo writeToFile:user_data atomically:YES];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [userInfo writeToFile:user_data atomically:YES];
+            //通知脚视图，加载完毕
+//            [footerView didLoadNews];
+            [self.currentViewController viewDidLoad];
+        });
     }else{
         [SVProgressHUD showInfoWithStatus:@"没有视频可以显示" maskType:3];
     }
