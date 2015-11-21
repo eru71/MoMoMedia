@@ -9,6 +9,7 @@
 #import "CategoryTableViewController.h"
 #import "VategoryViewModel.h"
 #import "AnimeShowsViewController.h"
+
 @interface CategoryTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) VategoryViewModel *vVM;
 @end
@@ -40,6 +41,8 @@
     }];
     self.tableView.bounces = YES;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    self.tableView.pagingEnabled = YES;
+    self.tableView.separatorColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {

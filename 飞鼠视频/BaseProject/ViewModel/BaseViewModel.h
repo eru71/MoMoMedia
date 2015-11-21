@@ -32,4 +32,6 @@ typedef void(^CompletionHandle)(NSError *error);
 
 - (NSString *)returnUploadTime:(NSString *)lastupdate;
 
+- (NSString *)returnVideoID:(NSString *)videoID;
+
 @end

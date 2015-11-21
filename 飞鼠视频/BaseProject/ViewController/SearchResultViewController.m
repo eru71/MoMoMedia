@@ -61,7 +61,10 @@
     [cell.iconView.imageView setImageWithURL:[self.searchVM thumbnailV2:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
     cell.viewCountLb.text = [_searchVM viewCountForRow:indexPath.row];
     cell.publishedLb.text = [_searchVM publishedForRow:indexPath.row];
-    
+    //边框设定
+    cell.iconView.layer.cornerRadius = 7;
+//    cell.layer.borderWidth = 0.6;
+//    cell.layer.borderColor = [UIColor lightGrayColor].CGColor;
     return cell;
 }
 #pragma mark - UICollectionViewDataDelegate

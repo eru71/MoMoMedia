@@ -88,6 +88,8 @@
     return YES;
 }
 
+//用 shimme 完成 tabbar 闪光效果
+
 - (void)guidePages
 {
     //数据源

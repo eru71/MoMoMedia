@@ -19,15 +19,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.searchTextField becomeFirstResponder];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor purpleColor];
+    self.view.backgroundColor = [UIColor blackColor];
     UITextField *searchTextField = [[UITextField alloc]initWithFrame:CGRectMake(kWindowW/2-100, kWindowH/3-20, 200, 40)];
     searchTextField.backgroundColor = [UIColor greenSeaColor];
     searchTextField.borderStyle = UITextBorderStyleRoundedRect;
     searchTextField.placeholder = @"在这儿输入哦";
+    searchTextField.clearsOnBeginEditing = YES;
     [self.view addSubview:searchTextField];
     self.searchTextField = searchTextField;
     self.searchTextField.delegate = self;
+    
+    //为输入框以外的地方添加点击事件实现收起键盘
+    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    tapGr.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGr];
+}
+
+-(void)viewTapped:(UITapGestureRecognizer*)tapGr
+{
+    [self.searchTextField resignFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -42,9 +54,14 @@
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
+    //拿到键盘
     [self becomeFirstResponder];
-//    [self showSuccessMsg:@"正在输入"];
+    //清空默认字
+    self.searchTextField.placeholder = @"";
+
 }
+
+
 
 //-(void)textFieldDidEndEditing:(UITextField *)textField{
 //    [self resignFirstResponder];

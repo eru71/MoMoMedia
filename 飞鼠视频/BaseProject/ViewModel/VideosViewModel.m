@@ -1,16 +1,17 @@
 //
-//  VideoShowsViewModel.m
+//  VideosViewModel.m
 //  BaseProject
 //
-//  Created by tarena on 15/11/14.
+//  Created by tarena on 15/11/21.
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
-#import "VideoShowsViewModel.h"
+#import "VideosViewModel.h"
 #import "VideoShowsByCategoryNetManager.h"
-#import "VideoCategoryModel.h"
+#import "VideosByCategoryModel.h"
 
-@implementation VideoShowsViewModel
+@implementation VideosViewModel
+
 
 -(id)initWithType:(NSString *)type{
     if (self = [super init]) {
@@ -34,14 +35,14 @@
 
 -(void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
     _page += 1;
-    self.dataTask = [VideoShowsByCategoryNetManager getAnimeWithMainType:_type Page:_page completionHandle:^(VideoCategoryModel* model, NSError *error) {
+    self.dataTask = [VideoShowsByCategoryNetManager getVideosWithType:_type Page:_page completionHandle:^(VideosByCategoryModel* model, NSError *error) {
         if (error) {
             NSLog(@"这儿是分类错误显示-----:%@",error);
         }
         if (_page == 0) {
             [self.dataArr removeAllObjects];
         }
-        [self.dataArr addObjectsFromArray:model.shows];
+        [self.dataArr addObjectsFromArray:model.videos];
         completionHandle(error);
     }];
 }
@@ -55,29 +56,29 @@
     [self getDataFromNetCompleteHandle:completionHandle];
 }
 
-- (VideoCategoryShowsModel *)modelForRow:(NSInteger)row{
+- (VideosByCategoryVideosModel *)modelForRow:(NSInteger)row{
     return self.dataArr[row];
 }
 
 //节目名称
 - (NSString *)nameForRow:(NSInteger)row{
-    return [self modelForRow:row].name;
+    return [self modelForRow:row].title;
 }
 
 //海报地址
 - (NSURL *)iconForRow:(NSInteger)row{
-    return [self modelForRow:row].poster;
+    return [self modelForRow:row].bigThumbnail;
 }
 
 //节目更新到
-- (NSString *)episodeUpdatedForRow:(NSInteger)row{
-    return [NSString stringWithFormat:@"更新至:%ld",[self modelForRow:row].episodeUpdated];
-}
+//- (NSString *)episodeUpdatedForRow:(NSInteger)row{
+//    return [NSString stringWithFormat:@"更新至:%ld",[self modelForRow:row].episodeUpdated];
+//}
 
 //节目最后更新的时间
 - (NSString *)lastupdateForRow:(NSInteger)row{
-    NSString *date =[self modelForRow:row].lastupdate;
-
+    NSString *date =[self modelForRow:row].published;
+    
     date = [self returnUploadTime:date];
     return date;
 }
@@ -89,15 +90,16 @@
     return [self modelForRow:row].link;
 }
 
-//节目最后一集的播放地址
-- (NSURL *)lastPlayLinkForRow:(NSInteger)row{
-    return [self modelForRow:row].lastPlayLink;
-}
 
 -(NSString *)videoIDForRow:(NSInteger)row{
-    NSString *string = [self modelForRow:row].playLink;
+    NSString *string = [self modelForRow:row].user.link;
     string = [self returnVideoID:string];
     return string;
 }
+
+-(NSString *)viewCountForRow:(NSInteger)row{
+    return [NSString stringWithFormat:@"%ld",[self modelForRow:row].viewCount];
+}
+
 
 @end

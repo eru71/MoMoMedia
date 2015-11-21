@@ -11,7 +11,7 @@
 @interface ShowsViewController ()<UIWebViewDelegate>
 
 @property(nonatomic,strong) UIWebView *webView;
-@property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
+//@property (nonatomic,strong) UIActivityIndicatorView *activityIndicator;
 
 @end
 @implementation ShowsViewController
@@ -19,24 +19,21 @@
 - (UIWebView *)webView{
     if (!_webView) {
         _webView = [UIWebView new];
+        [_webView loadRequest:self.request];
         _webView.delegate = self;
-        [self.view addSubview:_webView];
-        [_webView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
-        }];
+
     }
     return _webView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Factory addBackItemToVC:self];
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator.frame = CGRectMake(kWindowW/2-20, kWindowH/2-20, 50, 50);
-    [activityIndicator setCenter:self.view.center];
-    [self.view addSubview:activityIndicator];
-    self.activityIndicator = activityIndicator;
-    [self.webView loadRequest:self.request];
-    
+    [self.view addSubview:self.webView];
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.left.right.mas_equalTo(0);
+    }];
+
+    self.webView.scalesPageToFit = YES;
 
 }
 - (id)initWithRequest:(NSURLRequest *)request webTitle:(NSString *)title{
@@ -45,9 +42,7 @@
         self.title = title;
         //推出来 不显示下方栏
 //        self.hidesBottomBarWhenPushed = YES;
-        
     }
-    
     return self;
 }
 
@@ -55,16 +50,18 @@
 #pragma mark - WebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
 //    [self.activityIndicator startAnimating];
-    
+//    NSLog(@"shouldStartLoad");
     return YES;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView{
+//    NSLog(@"didstart");
     [self showProgress];
-    [self.activityIndicator startAnimating];
+//    [self.activityIndicator startAnimating];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+//    NSLog(@"didfinish");
     [self hideProgress];
-    [self.activityIndicator stopAnimating];
+//    [self.activityIndicator stopAnimating];
 
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{

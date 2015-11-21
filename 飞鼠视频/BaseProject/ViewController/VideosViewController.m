@@ -1,46 +1,46 @@
 //
-//  VideosByUserViewController.m
+//  VideosViewController.m
 //  BaseProject
 //
-//  Created by Colette71 on 15/11/17.
+//  Created by tarena on 15/11/21.
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
-#import "VideosByUserViewController.h"
-#import "VideosByUserCollectionViewCell.h"
+#import "VideosViewController.h"
+#import "VideosViewModel.h"
+#import "VideosCollectionViewCell.h"
 #import "ShowsViewController.h"
-#import "VideosByUserViewModel.h"
 
-
-@interface VideosByUserViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-
-@property (nonatomic,strong) VideosByUserViewModel *vbuVM;
+@interface VideosViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) VideosViewModel *vVM;
+
 
 @end
 
-@implementation VideosByUserViewController
+@implementation VideosViewController
 
--(id)initWithInfoType:(NSString *)infoType{
+-(id)initWithType:(NSString *)type{
     if (self = [super init]) {
-        _infoType = infoType;
+        _type = type;
+        self.title = type;
     }
     return self;
 }
 
-- (VideosByUserViewModel *)vbuVM {
-    if(_vbuVM == nil) {
-        _vbuVM = [[VideosByUserViewModel alloc] initWithUserName:_infoType];
+- (VideosViewModel *)vVM {
+    if(_vVM == nil) {
+        _vVM = [[VideosViewModel alloc] initWithType:_type];
     }
-    return _vbuVM;
+    return _vVM;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //    self.title = @"Anime";
+    
     [self.collectionView reloadData];
+    
     [self.collectionView.mj_header beginRefreshing];
     [Factory addMenuItemToVC:self];
 }
@@ -52,25 +52,47 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.vbuVM.rowNumber;
+    return self.vVM.rowNumber;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    VideosByUserCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    VideosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.title.text = [_vbuVM titileForRow:indexPath.row];
-    [cell.iconView.imageView setImageWithURL:[self.vbuVM thumbnailForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
-    cell.viewCountLb.text = [_vbuVM viewCountForRow:indexPath.row];
-    cell.publishedLb.text = [self.vbuVM publishedForRow:indexPath.row];
+    cell.layer.cornerRadius = 5;
+    self.collectionView.backgroundColor = [UIColor colorWithRed:244/255.0 green:244/255.0 blue:233/255.0 alpha:1];
+    cell.nameLb.text = [_vVM nameForRow:indexPath.row];
+    [cell.iconView.imageView setImageWithURL:[self.vVM iconForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
     cell.iconView.layer.cornerRadius = 7;
-    cell.layer.borderWidth = 0.6;
-    cell.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    cell.layer.borderWidth = 0.8;
+    cell.layer.borderColor = [UIColor colorWithRed:0.893 green:0.730 blue:0.488 alpha:1.000].CGColor;
+    cell.layer.backgroundColor = [UIColor whiteColor].CGColor;
+//    cell.episodeUpdatedLb.text = [self.vVM viewCountForRow:indexPath.row];
+    cell.lastupdateLb.text = [self.vVM lastupdateForRow:indexPath.row];
+
+    //    [cell.playingBtn bk_addEventHandler:^(id sender) {
+    //
+    ////        ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:cell.nameLb.text];
+    //
+    ////        [self.navigationController pushViewController:lastVideoVC animated:YES];
+    //        [self showProgress];
+    ////        VideoShowViewModel *videoVM = [[VideoShowViewModel alloc]initWithVideoID:[self.vsVM videoIDForRow:indexPath.row]];
+    ////        [videoVM getDataFromNetCompleteHandle:^(NSError *error) {
+    ////            DDLogVerbose(@"%@",videoVM.vsM.player);
+    ////        }];
+    ////        ShowsViewController *vc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoVM.vsM.player]] webTitle:cell.nameLb.text];
+    //
+    //        VideoShowViewController *vc = [[VideoShowViewController alloc]initWithVideoID:[self.vsVM videoIDForRow:indexPath.row]];
+    //
+    //        [self.navigationController pushViewController:vc animated:YES];
+    //
+    //    } forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 #pragma mark - UICollectionViewDataDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self showProgress];
-    ShowsViewController *svc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vbuVM linkForRow:indexPath.row]] webTitle:[self.vbuVM titileForRow:indexPath.row]];
-    [self.navigationController pushViewController:svc animated:YES];
+    ShowsViewController *vc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vVM linkForRow:indexPath.row]] webTitle:[self.vVM nameForRow:indexPath.row]];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -88,11 +110,8 @@
 //}
 /** 每格cell的 宽高 */
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    //    CGFloat width = kWindowW - 2 * 10;
-    //    CGFloat height = width/2 + 30;
     CGFloat width = (kWindowW - 3 * 20) / 2;
-    CGFloat height = width / 2 + 3 * 20;
-    
+    CGFloat height = width * 3 / 4;
     return CGSizeMake(width, height);
 }
 
@@ -121,7 +140,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self.vbuVM getDataFromNetCompleteHandle:^(NSError *error) {
+            [self.vVM getDataFromNetCompleteHandle:^(NSError *error) {
                 if (error) {
                     [self showErrorMsg:error.localizedDescription];
                 }else{
@@ -130,8 +149,9 @@
                 [_collectionView.mj_header endRefreshing];
             }];
         }];
+        
         _collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [self.vbuVM getMoreDataCompletionHandle:^(NSError *error) {
+            [self.vVM getMoreDataCompletionHandle:^(NSError *error) {
                 if (error) {
                     [self showErrorMsg:error.localizedDescription];
                     
@@ -141,10 +161,14 @@
                 [_collectionView.mj_footer endRefreshing];
             }];
         }];
-        [_collectionView registerClass:[VideosByUserCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+        
+        [_collectionView registerClass:[VideosCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     }
     return _collectionView;
 }
+
+
+
 
 
 @end

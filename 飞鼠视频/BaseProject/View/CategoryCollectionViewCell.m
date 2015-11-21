@@ -17,7 +17,7 @@
         _nameLb.numberOfLines = 2;
         [self.contentView addSubview:_nameLb];
         [_nameLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(0);
+            make.left.right.mas_equalTo(5);
             make.top.mas_equalTo(self.iconView.mas_bottom).mas_equalTo(0);
             make.height.mas_equalTo(20);
             make.bottom.mas_equalTo(0);

@@ -14,4 +14,9 @@
 
 - (id)initWithVideoID:(NSString *)videoID;
 
+@property(nonatomic,strong) NSURLRequest *request;
+@property (nonatomic,strong) NSString *webTitle;
+
+- (id)initWithRequest:(NSURLRequest *)request webTitle:(NSString *)title;
+
 @end

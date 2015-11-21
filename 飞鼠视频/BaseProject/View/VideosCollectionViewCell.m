@@ -1,14 +1,15 @@
+
 //
-//  ShowsCollectionViewCell.m
+//  VideosCollectionViewCell.m
 //  BaseProject
 //
-//  Created by Colette71 on 15/11/15.
+//  Created by tarena on 15/11/21.
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
-#import "ShowsCollectionViewCell.h"
+#import "VideosCollectionViewCell.h"
 
-@implementation ShowsCollectionViewCell
+@implementation VideosCollectionViewCell
 
 - (UILabel *)nameLb {
     if(_nameLb == nil) {
@@ -19,9 +20,9 @@
         [self.contentView addSubview:_nameLb];
         [_nameLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(5);
-            make.bottom.mas_equalTo(self.episodeUpdatedLb.mas_top).mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
             make.top.mas_equalTo(self.iconView.mas_bottom).mas_equalTo(0);
-            make.height.mas_lessThanOrEqualTo(30);
+            make.height.mas_lessThanOrEqualTo(40);
             make.height.mas_greaterThanOrEqualTo(20);
         }];
     }
@@ -57,21 +58,6 @@
     return _playingBtn;
 }
 
-- (UILabel *)episodeUpdatedLb {
-    if(_episodeUpdatedLb == nil) {
-        _episodeUpdatedLb = [[UILabel alloc] init];
-        [self.contentView addSubview:_episodeUpdatedLb];
-        _episodeUpdatedLb.font = [UIFont systemFontOfSize:12];
-        [_episodeUpdatedLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(_nameLb.mas_bottom).mas_equalTo(0);
-            make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(15);
-            make.bottom.mas_equalTo(0);
-        }];
-    }
-    return _episodeUpdatedLb;
-}
-
 -(UIView *)upView{
     if (!_upView) {
         _upView = [UIView new];
@@ -92,11 +78,11 @@
         _lastupdateLb.font = [UIFont systemFontOfSize:10];
         _lastupdateLb.textColor = [UIColor whiteColor];
         [_lastupdateLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.top.mas_equalTo(0);
+            make.right.bottom.top.mas_equalTo(0);
+            make.left.mas_equalTo(10);
             //            make.height.mas_equalTo(20);
         }];
     }
     return _lastupdateLb;
 }
-
 @end

@@ -74,4 +74,16 @@
     return timeString;
 }
 
+-(NSString *)returnVideoID:(NSString *)videoID{
+
+    NSRange range = [videoID rangeOfString:@"_X"];//匹配得到的下标
+    NSLog(@"rang:%@",NSStringFromRange(range));
+    NSString* string1 = [videoID substringFromIndex:range.location+1];//截取范围类的字符串
+    NSLog(@"截取的值为：%@",string1);
+    range = [string1 rangeOfString:@"."];
+    string1 = [string1 substringToIndex:range.location];
+    NSLog(@"%@",string1);
+    return string1;
+}
+
 @end

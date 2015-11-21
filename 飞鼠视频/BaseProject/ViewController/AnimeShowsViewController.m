@@ -41,10 +41,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    self.title = @"Anime";
+
     [self.collectionView reloadData];
-//    self.view.backgroundColor = kRGBColor(200, 150, 150);
+
     [self.collectionView.mj_header beginRefreshing];
     [Factory addMenuItemToVC:self];
 }
@@ -62,38 +61,38 @@
     ShowsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     cell.layer.cornerRadius = 5;
-//    cell.backgroundColor = [UIColor colorWithRed:199/255 green:255/255 blue:255/255 alpha:1];
-//    cell.backgroundColor = [UIColor lightGrayColor];
+    self.collectionView.backgroundColor = [UIColor colorWithRed:244/255.0 green:244/255.0 blue:233/255.0 alpha:1];
     cell.nameLb.text = [_vsVM nameForRow:indexPath.row];
     [cell.iconView.imageView setImageWithURL:[self.vsVM iconForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
-    cell.iconView.layer.cornerRadius = 5;
+    cell.iconView.layer.cornerRadius = 7;
+    cell.layer.borderWidth = 0.8;
+    cell.layer.borderColor = [UIColor colorWithRed:0.893 green:0.730 blue:0.488 alpha:1.000].CGColor;
+    cell.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    
     cell.lastupdateLb.text = [self.vsVM lastupdateForRow:indexPath.row];
     cell.episodeUpdatedLb.text = [self.vsVM episodeUpdatedForRow:indexPath.row];
-    [cell.playingBtn bk_addEventHandler:^(id sender) {
-        
-//        ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:cell.nameLb.text];
-
-//        [self.navigationController pushViewController:lastVideoVC animated:YES];
-        [self showProgress];
-//        VideoShowViewModel *videoVM = [[VideoShowViewModel alloc]initWithVideoID:[self.vsVM videoIDForRow:indexPath.row]];
-//        [videoVM getDataFromNetCompleteHandle:^(NSError *error) {
-//            DDLogVerbose(@"%@",videoVM.vsM.player);
-//        }];
-//        ShowsViewController *vc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoVM.vsM.player]] webTitle:cell.nameLb.text];
-        
-        VideoShowViewController *vc = [[VideoShowViewController alloc]initWithVideoID:[self.vsVM videoIDForRow:indexPath.row]];
-        
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    } forControlEvents:UIControlEventTouchUpInside];
+//    [cell.playingBtn bk_addEventHandler:^(id sender) {
+//        
+////        ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:cell.nameLb.text];
+//
+////        [self.navigationController pushViewController:lastVideoVC animated:YES];
+//        [self showProgress];
+////        VideoShowViewModel *videoVM = [[VideoShowViewModel alloc]initWithVideoID:[self.vsVM videoIDForRow:indexPath.row]];
+////        [videoVM getDataFromNetCompleteHandle:^(NSError *error) {
+////            DDLogVerbose(@"%@",videoVM.vsM.player);
+////        }];
+////        ShowsViewController *vc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoVM.vsM.player]] webTitle:cell.nameLb.text];
+//        
+//        VideoShowViewController *vc = [[VideoShowViewController alloc]initWithVideoID:[self.vsVM videoIDForRow:indexPath.row]];
+//        
+//        [self.navigationController pushViewController:vc animated:YES];
+//        
+//    } forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
 #pragma mark - UICollectionViewDataDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    ShowsViewController *svc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM linkForRow:indexPath.row]] webTitle:[self.vsVM nameForRow:indexPath.row]];
-//    
-//    [self.navigationController pushViewController:svc animated:YES];
     ShowsViewController *lastVideoVC = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vsVM lastPlayLinkForRow:indexPath.row]] webTitle:[self.vsVM nameForRow:indexPath.row]];
     
     [self.navigationController pushViewController:lastVideoVC animated:YES];
@@ -114,7 +113,7 @@
 //}
 /** 每格cell的 宽高 */
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = (kWindowW - 5 * 20) / 4;
+    CGFloat width = (kWindowW - 4 * 20) / 3;
     CGFloat height = width * 2;
     return CGSizeMake(width, height);
 }

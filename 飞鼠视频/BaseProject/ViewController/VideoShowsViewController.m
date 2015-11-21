@@ -11,6 +11,7 @@
 #import "AnimeShowsViewController.h"
 #import "CategoryViewController.h"
 #import "CategoryTableViewController.h"
+#import "VideosByCategoryViewController.h"
 @interface VideoShowsViewController ()
 
 @end
@@ -50,10 +51,10 @@
     nvvc.title = @"综艺";
     
 //    CategoryViewController *cvc = [[CategoryViewController alloc]init];
-    CategoryTableViewController *cvc = [CategoryTableViewController new];
+    VideosByCategoryViewController *cvc = [VideosByCategoryViewController new];
     UINavigationController *ncvc = [[UINavigationController alloc]initWithRootViewController:cvc];
-    cvc.title = @"其他";
-    ncvc.title = @"其他";
+    cvc.title = @"频道";
+    ncvc.title = @"频道";
     
     self.viewControllers = @[navc,nmvc,ntvc,nvvc,ncvc];
 }

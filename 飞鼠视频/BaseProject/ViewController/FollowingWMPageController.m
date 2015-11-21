@@ -78,7 +78,7 @@
     self.title = @"订阅";
     [Factory addMenuItemToVC:self];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:user_data]) {
+    if ([fileManager fileExistsAtPath:user_data]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"您现在没有订阅的用户" message:@"请输入想要订阅的用户昵称，用“；”键添加更多" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
         alert.alertViewStyle = FUIAlertViewStylePlainTextInput;
         [alert show];
@@ -106,7 +106,7 @@
         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:@{@"userFollowing":userFollowtext}];
         [userInfo writeToFile:user_data atomically:YES];
     }else{
-        [SVProgressHUD showInfoWithStatus:@"该用户没有发布视频或没有该用户" maskType:3];
+        [SVProgressHUD showInfoWithStatus:@"没有视频可以显示" maskType:3];
     }
 }
 
@@ -142,5 +142,26 @@
 	}
 	return _array;
 }
+
+/*
+ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+ //模拟从远程服务器接收到的字典数据
+ NSDictionary *newDataDict = @{
+ @"title":@"新的数据",
+ @"newsImage":@"n1.png",
+ @"commentCount":@"300"
+ };
+ //将字典转成模型
+ News *newsData = [[News alloc]init];
+ [newsData setValuesForKeysWithDictionary:newDataDict];
+ //将新的数据添加到数组中
+ [self.allNews addObject:newsData];
+ //更新表视图
+ NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.allNews.count-1 inSection:0];
+ [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+ //通知脚视图，加载完毕
+ [footerView didLoadNews];
+ });
+ */
 
 @end

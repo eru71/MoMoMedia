@@ -1,76 +1,67 @@
 //
-//  VideosByUserViewController.m
+//  VideosByCategoryViewController.m
 //  BaseProject
 //
-//  Created by Colette71 on 15/11/17.
+//  Created by tarena on 15/11/21.
 //  Copyright © 2015年 Tarena. All rights reserved.
 //
 
-#import "VideosByUserViewController.h"
-#import "VideosByUserCollectionViewCell.h"
-#import "ShowsViewController.h"
-#import "VideosByUserViewModel.h"
+#import "VideosByCategoryViewController.h"
+#import "VategoryViewModel.h"
+#import "VideoByCategoryCollectionViewCell.h"
+#import "VideosViewController.h"
 
-
-@interface VideosByUserViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-
-@property (nonatomic,strong) VideosByUserViewModel *vbuVM;
+@interface VideosByCategoryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) VategoryViewModel *vVM;
 
 @end
 
-@implementation VideosByUserViewController
+@implementation VideosByCategoryViewController
 
--(id)initWithInfoType:(NSString *)infoType{
-    if (self = [super init]) {
-        _infoType = infoType;
+- (VategoryViewModel *)vVM {
+    if(_vVM == nil) {
+        _vVM = [[VategoryViewModel alloc] init];
     }
-    return self;
-}
-
-- (VideosByUserViewModel *)vbuVM {
-    if(_vbuVM == nil) {
-        _vbuVM = [[VideosByUserViewModel alloc] initWithUserName:_infoType];
-    }
-    return _vbuVM;
+    return _vVM;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //    self.title = @"Anime";
+
     [self.collectionView reloadData];
+
     [self.collectionView.mj_header beginRefreshing];
     [Factory addMenuItemToVC:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.vbuVM.rowNumber;
+    return self.vVM.rowNumber;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    VideosByUserCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    VideoByCategoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.title.text = [_vbuVM titileForRow:indexPath.row];
-    [cell.iconView.imageView setImageWithURL:[self.vbuVM thumbnailForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_1"]];
-    cell.viewCountLb.text = [_vbuVM viewCountForRow:indexPath.row];
-    cell.publishedLb.text = [self.vbuVM publishedForRow:indexPath.row];
-    cell.iconView.layer.cornerRadius = 7;
-    cell.layer.borderWidth = 0.6;
-    cell.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    cell.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+    [cell.iconImageView.imageView setBackgroundColor:[UIColor colorWithRed:0.136 green:1.000 blue:0.189 alpha:1.000]];
+    cell.layer.cornerRadius = 7;
+    cell.iconImageView.layer.cornerRadius = 7;
+    cell.titleLb.text = [self.vVM nameForRow:indexPath.row];
+    
     return cell;
 }
 #pragma mark - UICollectionViewDataDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self showProgress];
-    ShowsViewController *svc = [[ShowsViewController alloc]initWithRequest:[NSURLRequest requestWithURL:[self.vbuVM linkForRow:indexPath.row]] webTitle:[self.vbuVM titileForRow:indexPath.row]];
-    [self.navigationController pushViewController:svc animated:YES];
+
+    VideosViewController *vc = [[VideosViewController alloc]initWithType:[self.vVM nameForRow:indexPath.row]];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -88,11 +79,8 @@
 //}
 /** 每格cell的 宽高 */
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    //    CGFloat width = kWindowW - 2 * 10;
-    //    CGFloat height = width/2 + 30;
-    CGFloat width = (kWindowW - 3 * 20) / 2;
-    CGFloat height = width / 2 + 3 * 20;
-    
+    CGFloat width = kWindowW / 4;
+    CGFloat height = width + 20;
     return CGSizeMake(width, height);
 }
 
@@ -121,7 +109,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self.vbuVM getDataFromNetCompleteHandle:^(NSError *error) {
+            [self.vVM getDataFromNetCompleteHandle:^(NSError *error) {
                 if (error) {
                     [self showErrorMsg:error.localizedDescription];
                 }else{
@@ -130,21 +118,11 @@
                 [_collectionView.mj_header endRefreshing];
             }];
         }];
-        _collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [self.vbuVM getMoreDataCompletionHandle:^(NSError *error) {
-                if (error) {
-                    [self showErrorMsg:error.localizedDescription];
-                    
-                }else{
-                    [_collectionView reloadData];
-                }
-                [_collectionView.mj_footer endRefreshing];
-            }];
-        }];
-        [_collectionView registerClass:[VideosByUserCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+        [_collectionView registerClass:[VideoByCategoryCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     }
     return _collectionView;
 }
+
 
 
 @end
