@@ -97,6 +97,13 @@
     if (self.array.count) {
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:user_data];
         NSString *userFollowtext = nil;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //更新表视图
+            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.allNews.count-1 inSection:0];
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            //通知脚视图，加载完毕
+            [footerView didLoadNews];
+        });
         if (dict[@"userFollowing"] == nil) {
             userFollowtext = [NSString stringWithFormat:@"%@",textf0];
         }else{
