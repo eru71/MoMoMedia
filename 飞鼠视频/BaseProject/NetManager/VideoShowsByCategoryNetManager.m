@@ -21,7 +21,7 @@
 #define kCategoryAnime @"category": @"动漫"
 
 #define KVideosOrderby @"orderby": @"published"
-#define kCount @"count": @"2000"
+#define kCount @"count": @"24"
 #define kPeriod @"period": @"today"
 #define kSetGenre(genre,dic) [dic setObject:[NSString stringWithFormat:@"%@",genre] forKey:@"genre"];
 
@@ -31,7 +31,7 @@
 @implementation VideoShowsByCategoryNetManager
 
 +(id)getAnimeWithMainType:(NSString *)type Page:(NSInteger)page completionHandle:(void (^)(id, NSError *))completionHandle{
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kClient_id}];//,kCount,kVideoShowsOrderby
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{kClient_id,kCount}];//,kCount,kVideoShowsOrderby
     kSetPage(page, params)
     if ([type isEqualToString:@"动漫"]) {
         kSetArea(@"日本", params)

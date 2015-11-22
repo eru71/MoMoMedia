@@ -11,6 +11,12 @@
 #define kCompletionHandle completionHandle:(void(^)(id model, NSError *error))completionHandle
 #define kClient_id @"client_id": @"3f00be3594932727"
 #define kSetPage(page,dic) [dic setObject:[NSString stringWithFormat:@"%ld",page] forKey:@"page"];
+/*
+ GoBelieve
+ App ID: 1369
+ App Key: Ugt69OzB2smdOjtuSMc3LW2XVRvDc196
+ App Secret: Dnvse1ygbPcAnNfCddYYPcOKxEz4K2b8
+ */
 
 @interface BaseNetManager : NSObject
 

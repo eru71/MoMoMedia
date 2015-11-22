@@ -37,6 +37,7 @@
     ncvc.title = @"搜索";
     
     self.viewControllers = @[ncvc];
+    
 }
 
 - (void)didReceiveMemoryWarning {

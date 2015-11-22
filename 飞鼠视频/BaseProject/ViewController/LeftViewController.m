@@ -12,7 +12,8 @@
 #import "FollowingWMPageController.h"
 #import "VideosByUserViewController.h"
 #import "SearchViewController.h"
-
+//#import "LoginViewController.h"
+#import "MyInfoViewController.h"
 
 @interface LeftViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -26,7 +27,7 @@
 @implementation LeftViewController
 
 - (NSArray *)itemNames{
-    return @[@"节目",@"订阅",@"搜索"];
+    return @[@"节目",@"订阅",@"搜索",@"我的"];
 }
 
 - (UIView *)headerView {
@@ -134,12 +135,16 @@ kRemoveCellSeparator
             break;
         case 1:
             [self.sideMenuViewController setContentViewController:[FollowingWMPageController standardFollowNavi]animated:YES];
-//            [self.sideMenuViewController setContentViewController:[VideosByUserViewController standardNavi]];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 2:
             [self.sideMenuViewController setContentViewController:[SearchViewController standardNavi] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
+            break;
+        case 3:
+            [self.sideMenuViewController setContentViewController:[MyInfoViewController standardVC] animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
         default:
             break;
     }

@@ -64,7 +64,8 @@
         _episodeUpdatedLb.font = [UIFont systemFontOfSize:12];
         [_episodeUpdatedLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(_nameLb.mas_bottom).mas_equalTo(0);
-            make.left.right.mas_equalTo(0);
+            make.right.mas_equalTo(0);
+            make.left.mas_equalTo(5);
             make.height.mas_equalTo(15);
             make.bottom.mas_equalTo(0);
         }];
@@ -92,7 +93,8 @@
         _lastupdateLb.font = [UIFont systemFontOfSize:10];
         _lastupdateLb.textColor = [UIColor whiteColor];
         [_lastupdateLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.top.mas_equalTo(0);
+            make.right.bottom.top.mas_equalTo(0);
+            make.left.mas_equalTo(5);
             //            make.height.mas_equalTo(20);
         }];
     }

@@ -30,7 +30,7 @@
     [self.view addSubview:searchTextField];
     self.searchTextField = searchTextField;
     self.searchTextField.delegate = self;
-    
+    [Factory addMenuItemToVC:self];
     //为输入框以外的地方添加点击事件实现收起键盘
     UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     tapGr.cancelsTouchesInView = NO;
@@ -58,6 +58,7 @@
     [self becomeFirstResponder];
     //清空默认字
     self.searchTextField.placeholder = @"";
+    self.searchTextField.clearsOnBeginEditing = YES;
 
 }
 
