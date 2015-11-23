@@ -119,10 +119,9 @@
 - (void)configGlobalUIStyle{
     /** 导航栏不透明 */
     [[UINavigationBar appearance] setTranslucent:NO];
+    
     /** 设置导航栏背景图 */
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor blackColor] cornerRadius:1]forBarMetrics:UIBarMetricsDefault];
-    
-    
     
     /** 配置导航栏题目的样式 */
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont flatFontOfSize:kNaviTitleFontSize], NSForegroundColorAttributeName: kNaviTitleColor}];
@@ -143,7 +142,7 @@
         _sideMenu=[[RESideMenu alloc]initWithContentViewController:[VideoShowsViewController standardNavi] leftMenuViewController:[LeftViewController new] rightMenuViewController:nil];
         
         //        _sideMenu.backgroundImage =[UIImage imageNamed:@""];
-        _sideMenu.backgroundImage = [UIImage imageWithColor:[UIColor blackColor] cornerRadius:1];
+        _sideMenu.backgroundImage = [UIImage imageWithColor:[UIColor purpleColor] cornerRadius:1];
         
         //可以让出现菜单时不显示状态栏
         _sideMenu.menuPrefersStatusBarHidden = NO;

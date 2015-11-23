@@ -108,12 +108,15 @@
         NSLog(@".................%ld",self.array.count);
         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:@{@"userFollowing":userFollowtext}];
         
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [userInfo writeToFile:user_data atomically:YES];
             //通知脚视图，加载完毕
-//            [footerView didLoadNews];
+//            [footerView didLoadNew s];
             [self.currentViewController viewDidLoad];
         });
+        
+        
     }else{
         [SVProgressHUD showInfoWithStatus:@"没有视频可以显示" maskType:3];
     }
@@ -152,25 +155,6 @@
 	return _array;
 }
 
-/*
- dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
- //模拟从远程服务器接收到的字典数据
- NSDictionary *newDataDict = @{
- @"title":@"新的数据",
- @"newsImage":@"n1.png",
- @"commentCount":@"300"
- };
- //将字典转成模型
- News *newsData = [[News alloc]init];
- [newsData setValuesForKeysWithDictionary:newDataDict];
- //将新的数据添加到数组中
- [self.allNews addObject:newsData];
- //更新表视图
- NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.allNews.count-1 inSection:0];
- [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
- //通知脚视图，加载完毕
- [footerView didLoadNews];
- });
- */
+
 
 @end

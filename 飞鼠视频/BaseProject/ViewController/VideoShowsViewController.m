@@ -33,9 +33,11 @@
     
     self.tabBar.translucent = NO;
     self.tabBar.backgroundColor = [UIColor blackColor];
+//    self.tabBar setBackgroundImage:""
 
     AnimeShowsViewController *avc = [[AnimeShowsViewController alloc]initWithType:@"动漫"];
     UINavigationController *navc = [[UINavigationController alloc]initWithRootViewController:avc];
+    navc.tabBarItem.image = [UIImage imageNamed:@"home1-1"];
     navc.title = @"动漫";
     
     AnimeShowsViewController *mvc = [[AnimeShowsViewController alloc]initWithType:@"电影"];

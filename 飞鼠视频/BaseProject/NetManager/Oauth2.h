@@ -14,4 +14,6 @@
 
 + (NSString *)getRequestTokenKeyWithCode:(NSString *)code;
 
++ (void)accessTokenWithCode:(NSString*)code;
+
 @end
