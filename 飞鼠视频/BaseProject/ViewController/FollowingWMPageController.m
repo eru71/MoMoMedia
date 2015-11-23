@@ -85,6 +85,9 @@
         alert.alertViewStyle = FUIAlertViewStylePlainTextInput;
         [alert show];
     }
+    
+//    NSDictionary *userInfo = @{@"name":@"Colette71",@"userFollowing":@"克里斯解说;sinbasara"};
+//    [userInfo writeToFile:user_data atomically:YES];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

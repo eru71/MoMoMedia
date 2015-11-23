@@ -46,8 +46,7 @@
     //    }];
     
 //        NSString *path = user_data;
-        NSDictionary *userInfo = @{@"name":@"Colette71",@"userFollowing":@"克里斯解说;sinbasara"};
-        [userInfo writeToFile:user_data atomically:YES];
+        
 //        NSLog(@"%@,%@",path,userInfo);
 //        NSLog(@"%@",path);
     

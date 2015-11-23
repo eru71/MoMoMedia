@@ -16,4 +16,6 @@
 
 + (void)accessTokenWithCode:(NSString*)code;
 
++ (void)accessTokenRefresh;
+
 @end

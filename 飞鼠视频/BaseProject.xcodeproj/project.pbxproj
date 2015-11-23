@@ -97,6 +97,7 @@
 		8575D7121BFD990D00B359B1 /* VideoShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8575D7111BFD990D00B359B1 /* VideoShowViewController.m */; };
 		859F9F661BF218A60062922D /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F651BF218A60062922D /* LeftViewController.m */; };
 		859F9F6C1BF21C670062922D /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 859F9F6B1BF21C670062922D /* Factory.m */; };
+		85A76D921C0334F700E7531D /* UserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A76D911C0334F700E7531D /* UserInfoTool.m */; };
 		85A85AB81BFFFEFD005C6DE1 /* VideosByCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A85AB71BFFFEFD005C6DE1 /* VideosByCategoryModel.m */; };
 		85A85ABE1C001593005C6DE1 /* VideosViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A85ABD1C001593005C6DE1 /* VideosViewModel.m */; };
 		85A85AC11C002DF4005C6DE1 /* VideosByCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A85AC01C002DF4005C6DE1 /* VideosByCategoryViewController.m */; };
@@ -272,6 +273,8 @@
 		859F9F651BF218A60062922D /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		859F9F6A1BF21C670062922D /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		859F9F6B1BF21C670062922D /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		85A76D901C0334F700E7531D /* UserInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTool.h; sourceTree = "<group>"; };
+		85A76D911C0334F700E7531D /* UserInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTool.m; sourceTree = "<group>"; };
 		85A85AB61BFFFEFD005C6DE1 /* VideosByCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideosByCategoryModel.h; sourceTree = "<group>"; };
 		85A85AB71BFFFEFD005C6DE1 /* VideosByCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideosByCategoryModel.m; sourceTree = "<group>"; };
 		85A85ABC1C001593005C6DE1 /* VideosViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideosViewModel.h; sourceTree = "<group>"; };
@@ -778,6 +781,8 @@
 		855F61461BFEFA51003DD1DD /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				85A76D901C0334F700E7531D /* UserInfoTool.h */,
+				85A76D911C0334F700E7531D /* UserInfoTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1032,6 +1037,7 @@
 				3885C8FB1BE8E96A009441EA /* README.md in Sources */,
 				C929BCAD1C01FF950081346E /* Oauth2.m in Sources */,
 				8571AC9C1C0067CD0076F1E2 /* VideosViewController.m in Sources */,
+				85A76D921C0334F700E7531D /* UserInfoTool.m in Sources */,
 				855721641BF6D440000B664A /* VideoCategoryModel.m in Sources */,
 				859F9F6C1BF21C670062922D /* Factory.m in Sources */,
 				3886C0C11BD74B090014E661 /* BaseModel.m in Sources */,
